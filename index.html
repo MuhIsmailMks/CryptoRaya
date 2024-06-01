@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/brett.png">
+    
+    <!-- aos animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@100..900&family=Titan+One&display=swap" rel="stylesheet">
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>BRETT</title>
+</head>
+
+<body class="bg-[#019EED]">
+
+    <div class="container_site max-w-[100%] relative w-full h-auto min-h-[100vh] overflow-hidden">
+
+        <!-- navbar -->
+        <nav
+            class="w-full z-[999] justify-center h-[80px] xl:h-[100px] absolute left-0 top-0 max-w-[100%]  flex items-center bg-[#18ABF4] border-b-[3px] border-[#0471A7]">
+
+            <div
+                class="nav_container px-[1rem] md:px-[2rem]  flex items-center relative h-[100%] justify-between w-full max-w-[100%] xl:max-w-[2100px] ">
+
+                <div class="left flex relative z-10 justify-center items-center text-[white] text_nav text-[15px] md:text-[30px]" data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="200">
+
+                    <div class="logo mr-[1rem]">
+                        <h2 class="text-[20px] xl:text-[43.13px]">BRETT</h2>
+                    </div> 
+
+                
+
+                </div>
+
+                <div class="center absolute left-0  top-0 h-full w-[100%] z-0 justify-center flex items-center "
+                 data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300">
+
+                <ul class="flex items-center absolute opacity-0 xl:opacity-100 xl:relative gap-[1rem] link_none">
+
+                    <li class="list-none"><a href="#about"
+                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">About</a>
+                    </li>
+
+                    <li class="list-none"><a href="#tokenomics"
+                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">Tokenomics</a>
+                    </li>
+
+                    <li class="list-none"><a href="#roadmap"
+                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">roadmap</a>
+                    </li>
+
+                </ul>
+
+                </div>
+
+                <div class="right relative z-10 md:w-auto flex justify-center h-full items-center gap-[.75rem] md:gap-[1rem]" data-aos="fade-left"
+                data-aos-duration="800"
+                data-aos-delay="200">
+
+                <div class="social flex items-center relative  gap-[.5rem]">
+                    <a href="#" class="media duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#F9DF94] flex justify-center items-center">
+                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
+                            <img src="./assets/images/twitter.png" alt="twitter" class="w-[50%] h-auto object-contain">
+                        </div>
+                    </a>
+                    <a href="#" class="media duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#FFD7E2] flex justify-center items-center">
+                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
+                            <img src="./assets/images/telegram.png" alt="telegram" class="w-[50%] h-auto object-contain">
+                        </div>
+                    </a>
+                </div>
+
+                    <a href="#"
+                        class="w-[90px] buy h-[40px] md:w-[145px] uppercase md:h-[63px] text-[black] bg-white rounded-[10px] md:rounded-[16px] text-[10px] xl:text-[18px] flex justify-center items-center btn_hover  rock_font hover:scale-110 duration-300 border-[1px] border-[black]">
+                        BUY NOW
+                    </a>
+
+                
+
+                    <div class="menu-button relative">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                  
+                </div>
+
+            </div>
+
+            <div
+                class="menu absolute duration-300 top-[100%] left-[0rem] w-[100%] h-[200px] flex justify-center border-t-[2px] border-[#0471A7] bg-[#18ABF4]">
+                <ul class="flex items-center  relative gap-[2rem] link_none flex-col justify-center">
+                
+                    <li class="list-none"><a href="#about"
+                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">About</a>
+                </li>
+
+                <li class="list-none"><a href="#tokenomics"
+                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">Tokenomics</a>
+                </li>
+
+                <li class="list-none"><a href="#roadmap"
+                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">roadmap</a>
+                </li>
+
+                            
+                </ul>
+            </div>
+
+        </nav>
+ 
+         <!-- hero section -->
+         <section class="hero w-full relative h-[600px] md:h-[800px] xl:h-[1000px] flex justify-center items-center z-[1]">
+            <!-- title -->
+            <h2 class="title text-white absolute top-[20%] xl:top-[13%] text-[100px] md:text-[160px] xl:text-[278.76px]" data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="200">BRETT</h2>
+            <!-- star -->
+            <img src="./assets/images/star.svg" alt="" class="absolute top-[20%] w-[90%] xl:w-[80%] max-w-[1500px] h-auto object-contain">
+            <!-- decor -->
+            <img src="./assets/images/hero_decor.svg" alt="" class="absolute top-[20%] xl:top-[17%] w-[50px] xl:w-[139.13px] left-[40%] h-auto object-contain z-[1]">
+            <!-- hero image -->
+            <img src="./assets/images/brett.png" alt="hero" class="absolute bottom-0 w-[400px] xl:w-[628.37px]  h-auto object-contain z-[1]">
+            <!-- hero bg -->
+            <img src="./assets/images/hero_bg.svg" alt="hero" class="absolute bottom-[-6%] w-[400px] xl:w-[798.37px]  h-auto object-contain z-[0]">
+ 
+            
+         </section>
+
+         <!-- lines -->
+         <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-auto  object-contain ">
+
+         <!-- rotate image -->
+         <div class="rotate w-full h-auto absolute left-0 top-[40vw] xl:top-0 z-0   flex justify-center items-center">
+           <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
+            <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
+            <img src="./assets/images/rotate.png" alt="" class="w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
+           </div>
+         </div>
+
+          <!-- about section -->
+          <section id="about" class="about w-full relative h-[900px] md:h-[800px] xl:h-[1200px] flex justify-center items-center z-[1] overflow-hidden">
+
+            <div class="content relative h-full w-[90%] min-[500px]:max-w-[500px] xl:max-w-[2000px] min-[1900px]:w-[1844.29px] min-[1900px]:h-[1062.25px] flex justify-center items-center">
+
+                <!-- bg -->
+                <img src="./assets/images/bg_about.svg" alt="" class="bg_content absolute left-0 top-0 object-contain min-[1900px]:object-cover w-full h-full">
+
+                <!-- boom  -->
+                <img src="./assets/images/boom.png" alt="" class="absolute left-0 w-[20vw] top-0 xl:top-[5vw] min-[2000px]:top-[-2vw] object-contain xl:w-[10vw] h-auto">
+             
+              
+
+                <!-- content -->
+                <div class="about_container w-full h-full relative flex items-center justify-center  max-[1300px]:flex-col gap-[50px] xl:pt-[100px]">
+
+                    <!-- text content -->
+                    <div class="text w-full absolute top-[15%] xl:top-[22%] min-[1400px]:top-[12%] pl-[10%] flex justify-start items-center gap-[15px] xl:gap-[30px] text-white uppercase text-[35px] xl:text-[90px] min-[1800px]:text-[110px]">
+                        <h3 >WhaT IS </h3>
+                        <h3 class="text-[#1DB9FF] rotate-[-10deg]" >$brett</h3>
+                    </div>
+
+                    <!-- main content -->
+                    <div class="left relative min-[1700px]:w-[40%] flex justify-center items-center ">
+                        <img src="./assets/images/about_image.png" alt="about" class=" h-auto object-contain w-[50%] xl:w-[400px] min-[1700px]:w-[661px]">
+                    </div>
+
+                    <div class="right relative flex flex-col gap-[30px] min-[1900px]:gap-[70px] w-full lg:w-[40%] min-[1900px]:w-[855px] max-[1024px]:px-[2rem]">
+                        <p class="text-black leading-[1.5] max-[1024px]:text-center min-[1700px]:leading-[48px] text-[14px] xl:text-[20px] min-[1800px]:text-[30px]">brett is the undisputed maestro of the 'Cat-puter Keyboard Symphony,' composing melodic masterpieces with his paw-tapping prowess. His keyboard serenades range from soothing melodies to chaotic compositions, leaving his human companions torn between frustration and admiration for his artistic endeavors.</p>
+                        <button class="btn bg-[#FFEB8D] w-[60%] h-[50px] xl:w-[349px] xl:h-[73px] duration-200 hover:scale-110 border-black border-[2px] rounded-[10px] uppercase xl:text-[22px] max-[1024px]:mx-auto">Share my findings</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+              <!-- decor  -->
+              <img src="./assets/images/decor_abt.png" alt="" class="absolute z-[1] bottom-[-5%] right-[-2%] rotate-[-20deg] object-contain w-[25vw] xl:w-[19vw] max-w-[200px] h-auto">
+
+         </section>
+
+           <!-- lines -->
+           <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-auto  object-contain ">
+
+           <!-- tokenomics -->
+           <section id="tokenomics" class="tokenomics w-full relative h-[1091px] flex items-center justify-center flex-col gap-[2rem]">
+            <!-- bg -->
+            <img src="./assets/images/bg_nomics.png" alt="nomics" class="w-full h-full object-cover absolute left-0 top-0">
+
+            <img src="./assets/images/bg_nomics3.png" alt="nomics" class="w-auto h-[90px] object-contain absolute left-[0rem] top-[20%] z-[1] ">
+            <img src="./assets/images/bg_nomics3.png" alt="nomics" class="w-auto h-[90px] object-contain absolute left-[3vw] hidden lg:block top-[82%] z-[1] ">
+            <img src="./assets/images/bg_nomics2.png" alt="nomics" class="w-auto h-[50px] object-contain absolute right-[2rem] top-[40%] z-[1] ">
+            <img src="./assets/images/bg_nomics2.png" alt="nomics" class="w-auto h-[50px] object-contain absolute right-[-1rem] top-[60%] z-[1] ">
+
+
+            <!-- title -->
+            <h2 class="title uppercase text-white text-[40px] md:text-[70px] xl:text-[110px]">BRETTokenomics</h2>
+
+            <p class="text-[16px] max-[500px]:px-[2rem] md:text-[23px] xl:text-[30px] text-white xl:w-[1040.01px] text-center">Oh lawd, hover over the pizza slices to reveal the token distribution of the fattest cat on earth</p>
+
+            <!-- contract -->
+            <div class="contract relative w-[90%] xl:w-[1110px] h-[330px] xl:h-[270.31px] bg-[#FFD401] border-[3px] border-black rounded-[20px]">
+                <!-- bg image  -->
+                <div class="bg absolute bottom-0 w-full h-full z-0">
+                    <img src="./assets/images/brett.png" alt="brett" class="h-auto object-contain w-[100px] xl:w-[177px] absolute bottom-0 left-[3%]">
+                    <img src="./assets/images/brett_mirror.png" alt="brett" class="h-auto object-contain w-[100px] xl:w-[177px] absolute bottom-0 right-[3%]">
+                </div>
+
+                <!-- content -->
+                <div class="flex justify-center items-center flex-col relative bottom-0 w-full h-full z-[1] text-center max-[1024px]:gap-[2rem]  max-[1024px]:pb-[3rem]">
+
+                    <p class="max-[400px]:text-[10vw] text-[32px]">contract address</p>
+
+                    <!-- address -->
+                    <div class="copy_address cursor-pointer  flex justify-center w-auto">
+                    <p class=" value text-[16px] uppercase" data-set="98txHDF1fFbY5rAWK12bKN1eS2qW2BA8r6QF2Co73pry"></p>
+                    <div class="copy flex justify-center items-center gap-[.5rem] xl:gap-[1rem]">
+                        <p class="font-[600] text-[10px] tracking-[1px] xl:tracking-[2px] md:text-[18px] value_copied"> 98txHDF1fFbY5rAWK12bKN1eS2qW2BA8r6QF2Co73pry</p>
+                        <img src="./assets/images/copy_contract.svg" alt="" class="object-contain w-auto h-[20px] md:h-[40px]">
+                    </div>
+                     </div>
+                    <button class="btn xl:mt-[2rem] bg-[#FFEB8D] w-[80%] h-[50px] max-[1024px]:max-w-[400px] xl:w-[450px] xl:h-[65px] duration-200 hover:scale-110 border-black border-[2px] rounded-[10px] uppercase text-[15px] xl:text-[22px] max-[1024px]:mx-auto tracking-[2px]">JOIN PRESALE ON PINKSALE</button>
+
+                </div>
+            </div>
+
+            <!-- btns -->
+            <div class="btns w-full h-auto relative flex items-center flex-wrap gap-[20px] justify-center xl:mt-[5rem]">
+                <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#FF8F3E] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
+                    Symbol : $brett
+                </button>
+                <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#FFD401] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
+                    sUPPLY: 100,000,000,000.
+                </button>
+                <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#68D0FF] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
+                    lP : 65% LOCKED 1 YEAR
+                </button>
+                <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#FF5CA4] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
+                    TAX 5% BUY 5% SELL
+                </button>
+            </div>
+
+           </section>
+
+             <!-- lines -->
+             <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-auto  object-contain ">
+
+            <!-- roadmap -->
+            <section id="roadmap" class="w-full h-[1500px] md:h-[1628px] z-10 relative bg-[#FFD401] overflow-hidden flex justify-center items-center">
+                <!-- cloud -->
+                <img src="./assets/images/cloud_roadmap.png" alt="cloud" class="w-full h-auto absolute left-0 top-[-10vw] min-[1900px]:top-[-20vw] z-0">
+
+                <!-- text -->
+                <h2 class="absolute z-[10] uppercase title top-[3%] text-center text-white text-[60px] xl:text-[110px]">rOAD MAP</h2>
+
+                <!-- rockect -->
+                <img src="./assets/images/rockets.png" alt="" class="w-[404px] h-auto absolute object-contain top-[5vw] z-[1]">
+
+                <!-- lines -->
+                <img src="./assets/images/roadmap_lines.svg" alt="" class="w-auto h-[1506px] absolute  object-contain top-[20vw] md:top-[15vw] z-0">
+                <!-- bottom cloud -->
+                <img src="./assets/images/cloud_bottm.png" alt="" class="w-auto h-[200px] absolute object-contain bottom-[-9%] z-0">
+
+                <!-- phase container -->
+                <div class="phase_container absolute w-full xl:w-[980px] h-[40%] flex justify-center items-center">
+
+                    <div class="phase absolute w-[80%] h-[240px] md:h-[306px] md:w-[450px] bg-[#FFE04A] border-[#EAC40A] border-[4px] rounded-md top-[-5%] md:top-0 xl:left-0 py-[1rem] px-[1.5rem] flex flex-col gap-[1.5rem]">
+                        <h1 class="uppercase leading-[1] text-white text-[30px] md:text-[56px]">phase 1</h1>
+
+                        <div class="relative w-full h-auto outfit_font text-[12px] md:text-[20px] flex flex-col gap-[.5rem]">
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Idea</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Development</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Audit & KYC</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>PR & Marketing</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Presale on Pinksale</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="phase absolute w-[80%] h-[240px] md:h-[306px] md:w-[450px] bg-[#FFE04A] border-[#EAC40A] border-[4px] rounded-md top-[60%] xl:right-0 py-[1rem] px-[1.5rem] flex flex-col gap-[1.5rem]">
+                        <h1 class="uppercase leading-[1] text-white text-[30px] md:text-[56px]">phase 2</h1>
+
+                        <div class="relative w-full h-auto outfit_font text-[12px] md:text-[20px] flex flex-col gap-[.5rem]">
+                            
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Idea</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Development</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Audit & KYC</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>PR & Marketing</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Presale on Pinksale</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="phase absolute w-[80%] h-[240px] md:h-[306px] md:w-[450px] bg-[#FFE04A] border-[#EAC40A] border-[4px] rounded-md bottom-[-60%] xl:bottom-[-70%] xl:left-0 py-[1rem] px-[1.5rem] flex flex-col gap-[1.5rem]">
+                        <h1 class="uppercase leading-[1] text-white text-[30px] md:text-[56px]">phase 3</h1>
+
+                        <div class="relative w-full h-auto outfit_font text-[12px] md:text-[20px] flex flex-col gap-[.5rem]">
+                            
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Idea</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Development</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Audit & KYC</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>PR & Marketing</p>
+                            </div>
+                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
+                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
+                                <p>Presale on Pinksale</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+
+            </section>
+
+
+            <!-- lines -->
+           <img src="./assets/images/lines_section.svg" alt="hero" class="relative  w-full z-[2] h-auto  object-contain ">
+
+           <!-- footer -->
+           <section class="w-full z-10 h-auto xl:h-[600px] relative items-end flex justify-center">
+            
+            <!-- content -->
+            <div class="h-auto xl:h-auto w-full flex justify-between items-center max-w-[2000px] xl:px-[2rem] max-[1024px]:flex-col">
+                <h1 class="title text-[50px] md:text-[105.11px] text-white max-[1024px]:my-[50px]">BRETT</h1>
+                <img src="./assets/images/brett.png" alt="brett" class="w-[492px] h-auto object-contain hidden lg:block">
+                <div class="patners xl:w-[700px] min-[1800px]:w-[810px]">
+                    <h2 class="uppercase max-[1024px]:text-center text-[30px] xl:text-[40px] text-white">our partners</h2>
+                    <div class="flex mt-[1rem] gap-[2rem] w-[360px] xl:w-full flex-wrap max-[1024px]:justify-center">
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners1.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners2.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners3.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners4.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners5.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners6.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners7.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners8.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners9.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners10.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners11.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                        <div class="w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
+                            <img src="./assets/images/patners12.png" alt="partners" class="object-contain h-auto w-[50%]">
+                        </div>
+                    </div>
+                </div>
+                <img src="./assets/images/brett.png" alt="brett" class="w-[80%] h-auto object-contain mt-[50px] lg:hidden">
+            </div>
+
+           </section>
+
+           <!-- by -->
+           <div class="by relative z-10 w-full h-auto max-[1024px]:py-[1rem] xl:h-[88px] flex justify-center bg-[#FFD401]">
+
+            <div class="flex justify-between items-center relative h-full w-full max-[1024px]:flex-col max-w-[2000px] gap-[1rem] px-[3rem]">
+                <p class="relative text-[14px]">©2024 ,$bRETT ,all rights reserved.</p>
+
+                <div class="social flex items-center relative  gap-[1rem]">
+                    <a href="#" class="media hover:scale-110 duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#F9DF94] flex justify-center items-center">
+                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
+                            <img src="./assets/images/twitter.png" alt="twitter" class="w-[50%] h-auto object-contain">
+                        </div>
+                    </a>
+                    <a href="#" class="media hover:scale-110 duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#FFD7E2] flex justify-center items-center">
+                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
+                            <img src="./assets/images/telegram.png" alt="telegram" class="w-[50%] h-auto object-contain">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+           
+
+           </div>
+
+           <!-- rotate image -->
+         <div class="rotate w-full h-auto absolute left-0  bottom-[-30vw] xl:bottom-[-50vw] min-[2500px]:bottom-[-40vw] z-0  flex justify-center items-center">
+            <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
+             <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
+             <img src="./assets/images/rotate.png" alt="" class="w-[1000px] xl:w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
+            </div>
+          </div>
+
+    </div>
+
+    <!-- aos js scroll animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+
+        // aos 
+        AOS.init({ 
+           once: true
+        });   
+
+        // menu navbar
+        const menu = document.querySelector('.menu');
+        const menuBtn = document.querySelector('.menu-button');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active')
+            menu.classList.toggle('active')
+        });
+
+        // copy address
+        // copy address
+        const copybtns = document.querySelectorAll(".copy_address");
+
+        copybtns.forEach(copybtn => {
+            copybtn.addEventListener("click", function () {
+                let textCopied = copybtn.querySelector('.value_copied');
+                let intervalId;
+                let addressText = document.querySelector(".value").getAttribute('data-set');
+                textCopied.innerHTML = 'COPIED';
+
+                if (intervalId) {
+                    clearInterval(intervalId);
+                }
+
+                intervalId = setInterval(() => {
+                    textCopied.innerHTML = '98txHDF1fFbY5rAWK12bKN1eS2qW2BA8r6QF2Co73pry';
+                    clearInterval(intervalId);
+                }, 1000);
+
+                navigator.clipboard.writeText(addressText);
+            });
+
+            
+        })
+
+        // change image
+        document.addEventListener('DOMContentLoaded', function() {
+
+        const aboutImage = document.querySelector('#about .bg_content'); 
+
+        function checkViewportWidth() { 
+            if (window.innerWidth < 1300 && window.innerWidth > 500) {
+                aboutImage.setAttribute('src', "./assets/images/bg_about_mobile.png") 
+            } else if(window.innerWidth < 500){ 
+                aboutImage.setAttribute('src', "./assets/images/bg_about_mobile_sm.png") 
+            } else { 
+                aboutImage.setAttribute('src', "./assets/images/bg_about.svg") 
+            }
+        }
+
+        checkViewportWidth(); 
+        window.addEventListener('resize', checkViewportWidth);
+
+        });
+
+
+    </script>
+</body>
+
+</html>
