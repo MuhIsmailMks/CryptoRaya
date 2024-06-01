@@ -35,8 +35,13 @@ nav li:hover a {
   color: rgb(20, 20, 20);
 }
 
+nav li a{
+  font-family: "Luckiest Guy", cursive;
+}
+
 nav .buy {
   box-shadow: 0px 4.55px 0px 0px #000000;
+  font-family: "Luckiest Guy", cursive;
 }
 
 nav .social .media {
