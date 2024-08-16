@@ -1,590 +1,1454 @@
-<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      :root,
+      :host {
+        --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+        --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+        --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+        --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+        --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+        --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+        --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/brett.png">
-    
-    <!-- aos animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+      svg:not(:root).svg-inline--fa,
+      svg:not(:host).svg-inline--fa {
+        overflow: visible;
+        box-sizing: content-box;
+      }
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@100..900&family=Titan+One&display=swap" rel="stylesheet">
-    <!-- tailwind css cdn -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- css link -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>BRETT</title>
-</head>
+      .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -0.125em;
+      }
+      .svg-inline--fa.fa-2xs {
+        vertical-align: 0.1em;
+      }
+      .svg-inline--fa.fa-xs {
+        vertical-align: 0em;
+      }
+      .svg-inline--fa.fa-sm {
+        vertical-align: -0.0714285705em;
+      }
+      .svg-inline--fa.fa-lg {
+        vertical-align: -0.2em;
+      }
+      .svg-inline--fa.fa-xl {
+        vertical-align: -0.25em;
+      }
+      .svg-inline--fa.fa-2xl {
+        vertical-align: -0.3125em;
+      }
+      .svg-inline--fa.fa-pull-left {
+        margin-right: var(--fa-pull-margin, 0.3em);
+        width: auto;
+      }
+      .svg-inline--fa.fa-pull-right {
+        margin-left: var(--fa-pull-margin, 0.3em);
+        width: auto;
+      }
+      .svg-inline--fa.fa-li {
+        width: var(--fa-li-width, 2em);
+        top: 0.25em;
+      }
+      .svg-inline--fa.fa-fw {
+        width: var(--fa-fw-width, 1.25em);
+      }
 
-<body class="bg-[#019EED]">
+      .fa-layers svg.svg-inline--fa {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
 
-    <div class="container_site max-w-[100%] relative w-full h-auto min-h-[100vh] overflow-hidden">
+      .fa-layers-counter,
+      .fa-layers-text {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+      }
 
-        <!-- navbar -->
-        <nav
-            class="w-full z-[999] justify-center h-[80px] xl:h-[100px] absolute left-0 top-0 max-w-[100%]  flex items-center bg-[#18ABF4] border-b-[3px] border-[#0471A7]">
+      .fa-layers {
+        display: inline-block;
+        height: 1em;
+        position: relative;
+        text-align: center;
+        vertical-align: -0.125em;
+        width: 1em;
+      }
+      .fa-layers svg.svg-inline--fa {
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+      }
 
+      .fa-layers-text {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+      }
+
+      .fa-layers-counter {
+        background-color: var(--fa-counter-background-color, #ff253a);
+        border-radius: var(--fa-counter-border-radius, 1em);
+        box-sizing: border-box;
+        color: var(--fa-inverse, #fff);
+        line-height: var(--fa-counter-line-height, 1);
+        max-width: var(--fa-counter-max-width, 5em);
+        min-width: var(--fa-counter-min-width, 1.5em);
+        overflow: hidden;
+        padding: var(--fa-counter-padding, 0.25em 0.5em);
+        right: var(--fa-right, 0);
+        text-overflow: ellipsis;
+        top: var(--fa-top, 0);
+        -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+        transform: scale(var(--fa-counter-scale, 0.25));
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+      }
+
+      .fa-layers-bottom-right {
+        bottom: var(--fa-bottom, 0);
+        right: var(--fa-right, 0);
+        top: auto;
+        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+        transform: scale(var(--fa-layers-scale, 0.25));
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+      }
+
+      .fa-layers-bottom-left {
+        bottom: var(--fa-bottom, 0);
+        left: var(--fa-left, 0);
+        right: auto;
+        top: auto;
+        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+        transform: scale(var(--fa-layers-scale, 0.25));
+        -webkit-transform-origin: bottom left;
+        transform-origin: bottom left;
+      }
+
+      .fa-layers-top-right {
+        top: var(--fa-top, 0);
+        right: var(--fa-right, 0);
+        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+        transform: scale(var(--fa-layers-scale, 0.25));
+        -webkit-transform-origin: top right;
+        transform-origin: top right;
+      }
+
+      .fa-layers-top-left {
+        left: var(--fa-left, 0);
+        right: auto;
+        top: var(--fa-top, 0);
+        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+        transform: scale(var(--fa-layers-scale, 0.25));
+        -webkit-transform-origin: top left;
+        transform-origin: top left;
+      }
+
+      .fa-1x {
+        font-size: 1em;
+      }
+
+      .fa-2x {
+        font-size: 2em;
+      }
+
+      .fa-3x {
+        font-size: 3em;
+      }
+
+      .fa-4x {
+        font-size: 4em;
+      }
+
+      .fa-5x {
+        font-size: 5em;
+      }
+
+      .fa-6x {
+        font-size: 6em;
+      }
+
+      .fa-7x {
+        font-size: 7em;
+      }
+
+      .fa-8x {
+        font-size: 8em;
+      }
+
+      .fa-9x {
+        font-size: 9em;
+      }
+
+      .fa-10x {
+        font-size: 10em;
+      }
+
+      .fa-2xs {
+        font-size: 0.625em;
+        line-height: 0.1em;
+        vertical-align: 0.225em;
+      }
+
+      .fa-xs {
+        font-size: 0.75em;
+        line-height: 0.0833333337em;
+        vertical-align: 0.125em;
+      }
+
+      .fa-sm {
+        font-size: 0.875em;
+        line-height: 0.0714285718em;
+        vertical-align: 0.0535714295em;
+      }
+
+      .fa-lg {
+        font-size: 1.25em;
+        line-height: 0.05em;
+        vertical-align: -0.075em;
+      }
+
+      .fa-xl {
+        font-size: 1.5em;
+        line-height: 0.0416666682em;
+        vertical-align: -0.125em;
+      }
+
+      .fa-2xl {
+        font-size: 2em;
+        line-height: 0.03125em;
+        vertical-align: -0.1875em;
+      }
+
+      .fa-fw {
+        text-align: center;
+        width: 1.25em;
+      }
+
+      .fa-ul {
+        list-style-type: none;
+        margin-left: var(--fa-li-margin, 2.5em);
+        padding-left: 0;
+      }
+      .fa-ul > li {
+        position: relative;
+      }
+
+      .fa-li {
+        left: calc(var(--fa-li-width, 2em) * -1);
+        position: absolute;
+        text-align: center;
+        width: var(--fa-li-width, 2em);
+        line-height: inherit;
+      }
+
+      .fa-border {
+        border-color: var(--fa-border-color, #eee);
+        border-radius: var(--fa-border-radius, 0.1em);
+        border-style: var(--fa-border-style, solid);
+        border-width: var(--fa-border-width, 0.08em);
+        padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+      }
+
+      .fa-pull-left {
+        float: left;
+        margin-right: var(--fa-pull-margin, 0.3em);
+      }
+
+      .fa-pull-right {
+        float: right;
+        margin-left: var(--fa-pull-margin, 0.3em);
+      }
+
+      .fa-beat {
+        -webkit-animation-name: fa-beat;
+        animation-name: fa-beat;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(
+          --fa-animation-timing,
+          ease-in-out
+        );
+        animation-timing-function: var(--fa-animation-timing, ease-in-out);
+      }
+
+      .fa-bounce {
+        -webkit-animation-name: fa-bounce;
+        animation-name: fa-bounce;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.28, 0.84, 0.42, 1)
+        );
+        animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.28, 0.84, 0.42, 1)
+        );
+      }
+
+      .fa-fade {
+        -webkit-animation-name: fa-fade;
+        animation-name: fa-fade;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.4, 0, 0.6, 1)
+        );
+        animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.4, 0, 0.6, 1)
+        );
+      }
+
+      .fa-beat-fade {
+        -webkit-animation-name: fa-beat-fade;
+        animation-name: fa-beat-fade;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.4, 0, 0.6, 1)
+        );
+        animation-timing-function: var(
+          --fa-animation-timing,
+          cubic-bezier(0.4, 0, 0.6, 1)
+        );
+      }
+
+      .fa-flip {
+        -webkit-animation-name: fa-flip;
+        animation-name: fa-flip;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(
+          --fa-animation-timing,
+          ease-in-out
+        );
+        animation-timing-function: var(--fa-animation-timing, ease-in-out);
+      }
+
+      .fa-shake {
+        -webkit-animation-name: fa-shake;
+        animation-name: fa-shake;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+        animation-timing-function: var(--fa-animation-timing, linear);
+      }
+
+      .fa-spin {
+        -webkit-animation-name: fa-spin;
+        animation-name: fa-spin;
+        -webkit-animation-delay: var(--fa-animation-delay, 0s);
+        animation-delay: var(--fa-animation-delay, 0s);
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 2s);
+        animation-duration: var(--fa-animation-duration, 2s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+        animation-timing-function: var(--fa-animation-timing, linear);
+      }
+
+      .fa-spin-reverse {
+        --fa-animation-direction: reverse;
+      }
+
+      .fa-pulse,
+      .fa-spin-pulse {
+        -webkit-animation-name: fa-spin;
+        animation-name: fa-spin;
+        -webkit-animation-direction: var(--fa-animation-direction, normal);
+        animation-direction: var(--fa-animation-direction, normal);
+        -webkit-animation-duration: var(--fa-animation-duration, 1s);
+        animation-duration: var(--fa-animation-duration, 1s);
+        -webkit-animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        animation-iteration-count: var(
+          --fa-animation-iteration-count,
+          infinite
+        );
+        -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+        animation-timing-function: var(--fa-animation-timing, steps(8));
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fa-beat,
+        .fa-bounce,
+        .fa-fade,
+        .fa-beat-fade,
+        .fa-flip,
+        .fa-pulse,
+        .fa-shake,
+        .fa-spin,
+        .fa-spin-pulse {
+          -webkit-animation-delay: -1ms;
+          animation-delay: -1ms;
+          -webkit-animation-duration: 1ms;
+          animation-duration: 1ms;
+          -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+          -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+          -webkit-transition-duration: 0s;
+          transition-duration: 0s;
+        }
+      }
+      @-webkit-keyframes fa-beat {
+        0%,
+        90% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        45% {
+          -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+          transform: scale(var(--fa-beat-scale, 1.25));
+        }
+      }
+      @keyframes fa-beat {
+        0%,
+        90% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        45% {
+          -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+          transform: scale(var(--fa-beat-scale, 1.25));
+        }
+      }
+      @-webkit-keyframes fa-bounce {
+        0% {
+          -webkit-transform: scale(1, 1) translateY(0);
+          transform: scale(1, 1) translateY(0);
+        }
+        10% {
+          -webkit-transform: scale(
+              var(--fa-bounce-start-scale-x, 1.1),
+              var(--fa-bounce-start-scale-y, 0.9)
+            )
+            translateY(0);
+          transform: scale(
+              var(--fa-bounce-start-scale-x, 1.1),
+              var(--fa-bounce-start-scale-y, 0.9)
+            )
+            translateY(0);
+        }
+        30% {
+          -webkit-transform: scale(
+              var(--fa-bounce-jump-scale-x, 0.9),
+              var(--fa-bounce-jump-scale-y, 1.1)
+            )
+            translateY(var(--fa-bounce-height, -0.5em));
+          transform: scale(
+              var(--fa-bounce-jump-scale-x, 0.9),
+              var(--fa-bounce-jump-scale-y, 1.1)
+            )
+            translateY(var(--fa-bounce-height, -0.5em));
+        }
+        50% {
+          -webkit-transform: scale(
+              var(--fa-bounce-land-scale-x, 1.05),
+              var(--fa-bounce-land-scale-y, 0.95)
+            )
+            translateY(0);
+          transform: scale(
+              var(--fa-bounce-land-scale-x, 1.05),
+              var(--fa-bounce-land-scale-y, 0.95)
+            )
+            translateY(0);
+        }
+        57% {
+          -webkit-transform: scale(1, 1)
+            translateY(var(--fa-bounce-rebound, -0.125em));
+          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+        }
+        64% {
+          -webkit-transform: scale(1, 1) translateY(0);
+          transform: scale(1, 1) translateY(0);
+        }
+        100% {
+          -webkit-transform: scale(1, 1) translateY(0);
+          transform: scale(1, 1) translateY(0);
+        }
+      }
+      @keyframes fa-bounce {
+        0% {
+          -webkit-transform: scale(1, 1) translateY(0);
+          transform: scale(1, 1) translateY(0);
+        }
+        10% {
+          -webkit-transform: scale(
+              var(--fa-bounce-start-scale-x, 1.1),
+              var(--fa-bounce-start-scale-y, 0.9)
+            )
+            translateY(0);
+          transform: scale(
+              var(--fa-bounce-start-scale-x, 1.1),
+              var(--fa-bounce-start-scale-y, 0.9)
+            )
+            translateY(0);
+        }
+        30% {
+          -webkit-transform: scale(
+              var(--fa-bounce-jump-scale-x, 0.9),
+              var(--fa-bounce-jump-scale-y, 1.1)
+            )
+            translateY(var(--fa-bounce-height, -0.5em));
+          transform: scale(
+              var(--fa-bounce-jump-scale-x, 0.9),
+              var(--fa-bounce-jump-scale-y, 1.1)
+            )
+            translateY(var(--fa-bounce-height, -0.5em));
+        }
+        50% {
+          -webkit-transform: scale(
+              var(--fa-bounce-land-scale-x, 1.05),
+              var(--fa-bounce-land-scale-y, 0.95)
+            )
+            translateY(0);
+          transform: scale(
+              var(--fa-bounce-land-scale-x, 1.05),
+              var(--fa-bounce-land-scale-y, 0.95)
+            )
+            translateY(0);
+        }
+        57% {
+          -webkit-transform: scale(1, 1)
+            translateY(var(--fa-bounce-rebound, -0.125em));
+          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+        }
+        64% {
+          -webkit-transform: scale(1, 1) translateY(0);
+          transform: scale(1, 1) translateY(0);
+        }
+        100% {
+          -webkit-transform: scale(1, 1) translateY(0);
+          transform: scale(1, 1) translateY(0);
+        }
+      }
+      @-webkit-keyframes fa-fade {
+        50% {
+          opacity: var(--fa-fade-opacity, 0.4);
+        }
+      }
+      @keyframes fa-fade {
+        50% {
+          opacity: var(--fa-fade-opacity, 0.4);
+        }
+      }
+      @-webkit-keyframes fa-beat-fade {
+        0%,
+        100% {
+          opacity: var(--fa-beat-fade-opacity, 0.4);
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+          transform: scale(var(--fa-beat-fade-scale, 1.125));
+        }
+      }
+      @keyframes fa-beat-fade {
+        0%,
+        100% {
+          opacity: var(--fa-beat-fade-opacity, 0.4);
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+          transform: scale(var(--fa-beat-fade-scale, 1.125));
+        }
+      }
+      @-webkit-keyframes fa-flip {
+        50% {
+          -webkit-transform: rotate3d(
+            var(--fa-flip-x, 0),
+            var(--fa-flip-y, 1),
+            var(--fa-flip-z, 0),
+            var(--fa-flip-angle, -180deg)
+          );
+          transform: rotate3d(
+            var(--fa-flip-x, 0),
+            var(--fa-flip-y, 1),
+            var(--fa-flip-z, 0),
+            var(--fa-flip-angle, -180deg)
+          );
+        }
+      }
+      @keyframes fa-flip {
+        50% {
+          -webkit-transform: rotate3d(
+            var(--fa-flip-x, 0),
+            var(--fa-flip-y, 1),
+            var(--fa-flip-z, 0),
+            var(--fa-flip-angle, -180deg)
+          );
+          transform: rotate3d(
+            var(--fa-flip-x, 0),
+            var(--fa-flip-y, 1),
+            var(--fa-flip-z, 0),
+            var(--fa-flip-angle, -180deg)
+          );
+        }
+      }
+      @-webkit-keyframes fa-shake {
+        0% {
+          -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+        }
+        4% {
+          -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+        }
+        8%,
+        24% {
+          -webkit-transform: rotate(-18deg);
+          transform: rotate(-18deg);
+        }
+        12%,
+        28% {
+          -webkit-transform: rotate(18deg);
+          transform: rotate(18deg);
+        }
+        16% {
+          -webkit-transform: rotate(-22deg);
+          transform: rotate(-22deg);
+        }
+        20% {
+          -webkit-transform: rotate(22deg);
+          transform: rotate(22deg);
+        }
+        32% {
+          -webkit-transform: rotate(-12deg);
+          transform: rotate(-12deg);
+        }
+        36% {
+          -webkit-transform: rotate(12deg);
+          transform: rotate(12deg);
+        }
+        40%,
+        100% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes fa-shake {
+        0% {
+          -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+        }
+        4% {
+          -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+        }
+        8%,
+        24% {
+          -webkit-transform: rotate(-18deg);
+          transform: rotate(-18deg);
+        }
+        12%,
+        28% {
+          -webkit-transform: rotate(18deg);
+          transform: rotate(18deg);
+        }
+        16% {
+          -webkit-transform: rotate(-22deg);
+          transform: rotate(-22deg);
+        }
+        20% {
+          -webkit-transform: rotate(22deg);
+          transform: rotate(22deg);
+        }
+        32% {
+          -webkit-transform: rotate(-12deg);
+          transform: rotate(-12deg);
+        }
+        36% {
+          -webkit-transform: rotate(12deg);
+          transform: rotate(12deg);
+        }
+        40%,
+        100% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+      }
+      @-webkit-keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes fa-spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .fa-rotate-90 {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .fa-rotate-180 {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      .fa-rotate-270 {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+      }
+
+      .fa-flip-horizontal {
+        -webkit-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+      }
+
+      .fa-flip-vertical {
+        -webkit-transform: scale(1, -1);
+        transform: scale(1, -1);
+      }
+
+      .fa-flip-both,
+      .fa-flip-horizontal.fa-flip-vertical {
+        -webkit-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+      }
+
+      .fa-rotate-by {
+        -webkit-transform: rotate(var(--fa-rotate-angle, 0));
+        transform: rotate(var(--fa-rotate-angle, 0));
+      }
+
+      .fa-stack {
+        display: inline-block;
+        vertical-align: middle;
+        height: 2em;
+        position: relative;
+        width: 2.5em;
+      }
+
+      .fa-stack-1x,
+      .fa-stack-2x {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: var(--fa-stack-z-index, auto);
+      }
+
+      .svg-inline--fa.fa-stack-1x {
+        height: 1em;
+        width: 1.25em;
+      }
+      .svg-inline--fa.fa-stack-2x {
+        height: 2em;
+        width: 2.5em;
+      }
+
+      .fa-inverse {
+        color: var(--fa-inverse, #fff);
+      }
+
+      .sr-only,
+      .fa-sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      .sr-only-focusable:not(:focus),
+      .fa-sr-only-focusable:not(:focus) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      .svg-inline--fa .fa-primary {
+        fill: var(--fa-primary-color, currentColor);
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa .fa-secondary {
+        fill: var(--fa-secondary-color, currentColor);
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-primary {
+        opacity: var(--fa-secondary-opacity, 0.4);
+      }
+
+      .svg-inline--fa.fa-swap-opacity .fa-secondary {
+        opacity: var(--fa-primary-opacity, 1);
+      }
+
+      .svg-inline--fa mask .fa-primary,
+      .svg-inline--fa mask .fa-secondary {
+        fill: black;
+      }
+
+      .fad.fa-inverse,
+      .fa-duotone.fa-inverse {
+        color: var(--fa-inverse, #fff);
+      }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="./static/media/logo-wide-7Gi-2v26.svg" />
+    <link rel="stylesheet" href="./static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Paradigm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      crossorigin=""
+      src="./static/media/index-CMa9gN9e.js"
+    ></script>
+    <link rel="stylesheet" crossorigin="" href="./static/media/index-DapL2GbO.css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div>
+        <header
+          class="d-flex justify-content-center align-items-center"
+          style="opacity: 1; transform: none;"
+        >
+          <img
+            src="./static/media/logo-wide-7Gi-2v26.svg"
+            alt="logo"
+            class="me-3 cursor-pointer"
+          />
+          <div class="outer-links d-flex align-items-center">
+            <span><a href="#home">Home</a></span
+            ><span><a href="#about">About</a></span
+            ><span><a href="#tech">Technology</a></span
+            ><span><a href="#validators">Validators</a></span
+            ><span><a href="#roadMap">Roadmap</a></span>
+            <div style="position: relative;">
+              <button class="white-btn ms-3">
+                Whitepaper<span style="margin-left: 20px; border: none;"
+                  ><svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="chevron-down"
+                    class="svg-inline--fa fa-chevron-down"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                    ></path></svg ></span>
+              </button>
+            </div>
+            <img
+              src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='12'%20cy='12'%20r='10'%20stroke='%23fff'%20stroke-width='1.5'/%3e%3cpath%20d='M14.5%209.50002L9.5%2014.5M9.49998%209.5L14.5%2014.5'%20stroke='%23fff'%20stroke-width='1.5'%20stroke-linecap='round'/%3e%3c/svg%3e"
+              alt="close"
+              class="close"
+            />
+          </div>
+          <img
+            src="data:image/svg+xml,%3csvg%20width='44'%20height='37'%20viewBox='0%200%2044%2037'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20x='0.5'%20y='0.5'%20width='43'%20height='36'%20rx='3.5'%20stroke='white'%20stroke-dasharray='4%204'/%3e%3cpath%20d='M14.2498%2012.4585H20.2915C20.612%2012.4585%2020.9193%2012.5858%2021.1459%2012.8124C21.3725%2013.039%2021.4998%2013.3464%2021.4998%2013.6668C21.4998%2013.9873%2021.3725%2014.2946%2021.1459%2014.5213C20.9193%2014.7479%2020.612%2014.8752%2020.2915%2014.8752H14.2498C13.9294%2014.8752%2013.622%2014.7479%2013.3954%2014.5213C13.1688%2014.2946%2013.0415%2013.9873%2013.0415%2013.6668C13.0415%2013.3464%2013.1688%2013.039%2013.3954%2012.8124C13.622%2012.5858%2013.9294%2012.4585%2014.2498%2012.4585ZM22.7082%2022.1252H28.7498C29.0703%2022.1252%2029.3777%2022.2525%2029.6043%2022.4791C29.8309%2022.7057%2029.9582%2023.013%2029.9582%2023.3335C29.9582%2023.654%2029.8309%2023.9613%2029.6043%2024.1879C29.3777%2024.4145%2029.0703%2024.5418%2028.7498%2024.5418H22.7082C22.3877%2024.5418%2022.0804%2024.4145%2021.8538%2024.1879C21.6271%2023.9613%2021.4998%2023.654%2021.4998%2023.3335C21.4998%2023.013%2021.6271%2022.7057%2021.8538%2022.4791C22.0804%2022.2525%2022.3877%2022.1252%2022.7082%2022.1252ZM14.2498%2017.2918H28.7498C29.0703%2017.2918%2029.3777%2017.4191%2029.6043%2017.6457C29.8309%2017.8723%2029.9582%2018.1797%2029.9582%2018.5002C29.9582%2018.8206%2029.8309%2019.128%2029.6043%2019.3546C29.3777%2019.5812%2029.0703%2019.7085%2028.7498%2019.7085H14.2498C13.9294%2019.7085%2013.622%2019.5812%2013.3954%2019.3546C13.1688%2019.128%2013.0415%2018.8206%2013.0415%2018.5002C13.0415%2018.1797%2013.1688%2017.8723%2013.3954%2017.6457C13.622%2017.4191%2013.9294%2017.2918%2014.2498%2017.2918Z'%20fill='white'/%3e%3c/svg%3e"
+            alt="mobileMenu"
+            class="mobile-menu"
+          />
+        </header>
+        <div class="inner-container">
+          <section class="home" id="home">
+            <div class="main-title" style="opacity: 1; transform: none;">
+              A Quantum  Secure &amp; AI Enabled Privacy Layer 1
+            </div>
+            <div class="sub-title" style="opacity: 1; transform: none;">
+              Secure and private transactions through advanced cryptographic
+              techniques
+            </div>
             <div
-                class="nav_container px-[1rem] md:px-[2rem]  flex items-center relative h-[100%] justify-between w-full max-w-[100%] xl:max-w-[2100px] ">
-
-                <div class="left flex relative z-10 justify-center items-center text-[white] text_nav text-[15px] md:text-[30px]" data-aos="fade-right"
-                data-aos-duration="800"
-                data-aos-delay="200">
-
-                    <div class="logo mr-[1rem]">
-                        <h2 class="text-[20px] xl:text-[43.13px]">BRETT</h2>
-                    </div> 
-
-                
-
-                </div>
-
-                <div class="center absolute left-0  top-0 h-full w-[100%] z-0 justify-center flex items-center "
-                 data-aos="fade-up"
-                data-aos-duration="800"
-                data-aos-delay="300">
-
-                <ul class="flex items-center absolute opacity-0 xl:opacity-100 xl:relative gap-[1rem] link_none">
-
-                    <li class="list-none"><a href="#about"
-                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">About</a>
-                    </li>
-
-                    <li class="list-none"><a href="#tokenomics"
-                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">Tokenomics</a>
-                    </li>
-
-                    <li class="list-none"><a href="#roadmap"
-                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">roadmap</a>
-                    </li>
-
-                </ul>
-
-                </div>
-
-                <div class="right relative z-10 md:w-auto flex justify-center h-full items-center gap-[.75rem] md:gap-[1rem]" data-aos="fade-left"
-                data-aos-duration="800"
-                data-aos-delay="200">
-
-                <div class="social flex items-center relative  gap-[.5rem]">
-                    <a href="https://x.com/" target="_blank" class="media duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#F9DF94] flex justify-center items-center">
-                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
-                            <img src="./assets/images/twitter.png" alt="twitter" class="w-[50%] h-auto object-contain">
-                        </div>
-                    </a>
-                    <a href="https://telegram.org/" target="_blank" class="media duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#FFD7E2] flex justify-center items-center">
-                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
-                            <img src="./assets/images/telegram.png" alt="telegram" class="w-[50%] h-auto object-contain">
-                        </div>
-                    </a>
-                </div>
-
-                    <a href="#"
-                        class="w-[90px] buy h-[40px] md:w-[145px] uppercase md:h-[63px] text-[black] bg-white rounded-[10px] md:rounded-[16px] text-[10px] xl:text-[18px] flex justify-center items-center btn_hover  rock_font hover:scale-110 duration-300 border-[1px] border-[black]">
-                        BUY NOW
-                    </a>
-
-                
-
-                    <div class="menu-button relative">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                  
-                </div>
-
+              class="d-flex justify-content-center align-items-center gap-3"
+              style="opacity: 1; transform: none;"
+            >
+              <a
+                href="https://quantumParadigmscan.io/"
+                target="_blank"
+                class="customBtn"
+                >Testnet</a
+              ><a
+                href="https://drive.google.com/file/d/1ctwwrnOnRMxqoymP8yeO3qlu2vUTHOfK/view"
+                target="_blank"
+                class="customBtn"
+                >WhitePaper</a
+              >
             </div>
-
+            <img
+              src="./static/media/main-home-2-BxzsthO_.gif"
+              alt="mainHome"
+              class="main-home-img"
+              style="opacity: 1; transform: none;"
+            />
+          </section>
+          <section class="paradigm text-center" id="about">
+            <img
+              class="w-100 horizontal-line"
+              src="data:image/svg+xml,%3csvg%20width='1020'%20height='1'%20viewBox='0%200%201020%201'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='-4.37114e-08'%20y1='0.5'%20x2='1020'%20y2='0.499911'%20stroke='url(%23paint0_linear_175_487)'%20stroke-dasharray='6%206'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_175_487'%20x1='4.37114e-08'%20y1='1.5'%20x2='1020'%20y2='1.49991'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='white'%20stop-opacity='0'/%3e%3cstop%20offset='0.539523'%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+              alt="horizontalLine"
+            />
+            <div class="main-title" style="opacity: 1; transform: none;">
+              A New Paradigm
+            </div>
             <div
-                class="menu absolute duration-300 top-[100%] left-[0rem] w-[100%] h-[200px] flex justify-center border-t-[2px] border-[#0471A7] bg-[#18ABF4]">
-                <ul class="flex items-center  relative gap-[2rem] link_none flex-col justify-center">
-                
-                    <li class="list-none"><a href="#about"
-                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">About</a>
-                </li>
-
-                <li class="list-none"><a href="#tokenomics"
-                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">Tokenomics</a>
-                </li>
-
-                <li class="list-none"><a href="#roadmap"
-                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">roadmap</a>
-                </li>
-
-                            
-                </ul>
+              class="sub-title"
+              style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+            >
+              Quantum Paradigm is a Layer 1 blockchain designed to provide the
+              highest level of security and privacy. Utilizing advanced
+              cryptographic techniques, Quantum Paradigm addresses the challenges
+              brought by quantum computing and the growing need for privacy in
+              decentralized systems. Our goal is straightforward: develop a
+              secure, scalable, and privacy-focused blockchain that enables
+              individuals and businesses to conduct digital transactions with
+              complete assurance.
             </div>
-
-        </nav>
- 
-         <!-- hero section -->
-         <section class="hero w-full relative h-[600px] md:h-[800px] xl:h-[1080px] flex justify-center items-center z-[1]">
-            <!-- title -->
-            <h2 class="title text-white absolute top-[20%] xl:top-[13%] text-[100px] md:text-[160px] xl:text-[278.76px]" data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="200">BRETT</h2>
-            <!-- star -->
-            <img src="./assets/images/star.svg" alt="" class="absolute top-[20%] w-[90%] xl:w-[80%] max-w-[1500px] h-auto object-contain">
-            <!-- decor -->
-            <img src="./assets/images/hero_decor.svg" alt="" class="absolute top-[20%] xl:top-[17%] w-[50px] xl:w-[139.13px] left-[40%] h-auto object-contain z-[1]">
-            <!-- hero image -->
-            <img src="./assets/images/brett.png" alt="hero" class="absolute bottom-0 w-[400px] xl:w-[628.37px]  h-auto object-contain z-[1]">
-            <!-- hero bg -->
-            <img src="./assets/images/hero_bg.svg" alt="hero" class="absolute bottom-[-4%] w-[400px] xl:w-[798.37px]  h-auto object-contain z-[0]">
- 
-            
-         </section>
-
-         <!-- lines -->
-         <div class="relative w-full h-[50px] xl:h-auto flex justify-center items-center">
-            <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-full xl:h-auto  object-cover ">
-         </div>
-
-         <!-- rotate image -->
-         <div class="rotate w-full h-auto absolute left-0 top-[40vw] xl:top-0 z-0  flex justify-center items-center">
-           <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
-            <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
-            <img src="./assets/images/rotate.png" alt="" class="w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
-           </div>
-         </div>
-
-          <!-- about section -->
-          <section id="about" class="about w-full relative h-[900px] md:h-[800px] xl:h-[1200px] flex justify-center items-center z-[1] overflow-hidden">
-
-            <div class="content relative h-full w-[90%] min-[500px]:max-w-[500px] xl:max-w-[2000px] min-[1900px]:w-[1844.29px] min-[1900px]:h-[1062.25px] flex justify-center items-center">
-
-                <!-- bg -->
-                <img src="./assets/images/bg_about.svg" alt="" class="bg_content absolute left-0 top-0 object-contain min-[1900px]:object-cover w-full h-full">
-
-                <!-- boom  -->
-                <img src="./assets/images/boom.png" alt="" class="absolute left-0 w-[20vw] top-0 xl:top-[5vw] min-[2000px]:top-[-2vw] object-contain xl:w-[10vw] h-auto">
-             
-              
-
-                <!-- content -->
-                <div class="about_container w-full h-full relative flex items-center justify-center  max-[1300px]:flex-col gap-[50px] xl:pt-[100px]">
-
-                    <!-- text content -->
-                    <div class="text w-full absolute top-[15%] xl:top-[22%] min-[1400px]:top-[22%] pl-[10%] min-[2000px]:top-[130px] flex justify-start items-center gap-[15px] xl:gap-[30px] text-white uppercase text-[35px] xl:text-[90px] min-[1800px]:text-[110px]">
-                        <h3 >WhaT IS </h3>
-                        <h3 class="text-[#1DB9FF] rotate-[-10deg]" >$brett</h3>
-                    </div>
-
-                    <!-- main content -->
-                    <div class="left relative min-[1700px]:w-[40%] flex justify-center items-center ">
-                        <img src="./assets/images/about_image.png" alt="about" class=" h-auto object-contain w-[50%] xl:w-[400px] min-[1700px]:w-[661px] float_animation">
-                    </div>
-
-                    <div class="right relative flex flex-col gap-[30px] min-[1900px]:gap-[70px] w-full lg:w-[40%] min-[1900px]:w-[855px] max-[1024px]:px-[2rem]">
-                        <p class="text-black leading-[1.5] max-[1024px]:text-center min-[1700px]:leading-[48px] text-[14px] xl:text-[20px] min-[1800px]:text-[30px]" data-aos="fade-left"
-                        data-aos-duration="800"
-                        data-aos-delay="200">brett is the undisputed maestro of the 'Cat-puter Keyboard Symphony,' composing melodic masterpieces with his paw-tapping prowess. His keyboard serenades range from soothing melodies to chaotic compositions, leaving his human companions torn between frustration and admiration for his artistic endeavors.</p>
-                        <div class="relative max-[1024px]:w-full flex justify-center" data-aos="zoom-in"
-                        data-aos-duration="800"
-                        data-aos-delay="200">
-                            <button class="btn bg-[#FFEB8D] w-[60%] h-[50px] xl:w-[349px] xl:h-[73px] duration-200 hover:scale-110 border-black border-[2px] rounded-[10px] uppercase xl:text-[22px] max-[1024px]:mx-auto">Share my findings</button>
-                        </div>
-                    </div>
-
-                </div>
-
-
+            <div
+              class="sub-title"
+              style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+            >
+              Quantum Paradigm incorporates technologies such as quantum-resistant
+              cryptography, zk-SNARKs, and Fully Homomorphic Encryption (FHE) to
+              provide unmatched security and privacy. Our Quantum Secure Proof
+              of Stake (QsPOS) consensus mechanism combines effectiveness with
+              strong security.
             </div>
-
-              <!-- decor  -->
-              <img src="./assets/images/decor_abt.png" alt="" class="absolute z-[1] bottom-[-5%] right-[-2%] rotate-[-20deg] object-contain w-[25vw] xl:w-[19vw] max-w-[200px] h-auto">
-
-         </section>
-
-           <!-- lines -->
-          <div class="relative w-full h-[50px] xl:h-auto flex justify-center items-center">
-            <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-full xl:h-auto  object-cover ">
-         </div>
-
-           <!-- tokenomics -->
-           <section id="tokenomics" class="tokenomics w-full relative z-[9] h-[1091px] flex items-center justify-center flex-col gap-[2rem]">
-            <!-- bg -->
-            <img src="./assets/images/bg_nomics.png" alt="nomics" class="w-full h-full object-cover absolute left-0 top-0">
-
-            <img src="./assets/images/bg_nomics3.png" alt="nomics" class="w-auto h-[90px] object-contain absolute left-[0rem] top-[20%] z-[1] ">
-            <img src="./assets/images/bg_nomics3.png" alt="nomics" class="w-auto h-[90px] object-contain absolute left-[3vw] hidden lg:block top-[82%] z-[1] ">
-            <img src="./assets/images/bg_nomics2.png" alt="nomics" class="w-auto h-[50px] object-contain absolute right-[2rem] top-[40%] z-[1] ">
-            <img src="./assets/images/bg_nomics2.png" alt="nomics" class="w-auto h-[50px] object-contain absolute right-[-1rem] top-[60%] z-[1] ">
-
-
-            <!-- title -->
-            <h2 class="title uppercase text-white text-[40px] md:text-[70px] xl:text-[110px]"  data-aos="fade-right"
-            data-aos-duration="800"
-            data-aos-delay="200">BRETTokenomics</h2>
-
-            <p class="text-[16px] max-[500px]:px-[2rem] md:text-[23px] xl:text-[30px] text-white xl:w-[1040.01px] text-center" data-aos="fade-right"
-            data-aos-duration="800"
-            data-aos-delay="300">Oh lawd, hover over the pizza slices to reveal the token distribution of the fattest cat on earth</p>
-
-            <!-- contract -->
-            <div class="contract relative w-[90%] xl:w-[1110px] h-[330px] xl:h-[270.31px] bg-[#FFD401] border-[3px] border-black rounded-[20px]" data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="200">
-                <!-- bg image  -->
-                <div class="bg absolute bottom-0 w-[100%] xl:w-full h-full z-0">
-                    <img src="./assets/images/brett.png" alt="brett" class="h-auto object-contain w-[100px] xl:w-[177px] absolute bottom-0 left-[3%]">
-                    <img src="./assets/images/brett_mirror.png" alt="brett" class="h-auto object-contain w-[100px] xl:w-[177px] absolute bottom-0 right-[3%]">
-                </div>
-
-                <!-- content -->
-                <div class="flex justify-center items-center flex-col relative bottom-0 w-full h-full z-[1] text-center max-[1024px]:gap-[2rem]  max-[1024px]:pb-[3rem]">
-
-                    <p class="max-[400px]:text-[10vw] text-[32px]">contract address</p>
-
-                    <!-- address -->
-                    <div class="copy_address cursor-pointer  flex justify-center w-auto">
-                        <p class=" value text-[16px] uppercase" data-set="98txHDF1fFbY5rAWK12bKN1eS2qW2BA8r6QF2Co73pry"></p>
-                        <div class="copy flex justify-center items-center gap-[.5rem] xl:gap-[1rem]">
-                            <p class="font-[600] text-[2vw] tracking-[1px] xl:tracking-[2px] md:text-[18px] value_copied"> 98txHDF1fFbY5rAWK12bKN1eS2qW2BA8r6QF2Co73pry</p>
-                            <img src="./assets/images/copy_contract.svg" alt="" class="object-contain w-auto h-[20px] md:h-[40px]">
-                        </div>
-                
-                    </div>
-
-                    <button class="btn xl:mt-[2rem] bg-[#FFEB8D] w-[80%] h-[50px] max-[1024px]:max-w-[400px] xl:w-[450px] xl:h-[65px] duration-200 hover:scale-110 border-black border-[2px] rounded-[10px] uppercase text-[15px] xl:text-[22px] max-[1024px]:mx-auto tracking-[2px]">JOIN PRESALE ON PINKSALE</button>
-
-                </div>
+            <div
+              class="sub-title"
+              style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+            >
+              CA : 0x22c158a3f3ea3419176c083aa11eb593e94965dc
             </div>
-
-            <!-- btns -->
-            <div class="btns w-full h-auto relative flex items-center flex-wrap gap-[20px] justify-center xl:mt-[5rem]">
-                <div class="relative max-[1024px]:w-full flex justify-center" data-aos="zoom-in"
-                data-aos-duration="800"
-                data-aos-delay="200">
-                    <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#FF8F3E] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]" >
-                        Symbol : $brett
-                    </button>
-                </div>
-                <div class="relative max-[1024px]:w-full flex justify-center" data-aos="zoom-in"
-                data-aos-duration="800"
-                data-aos-delay="400">
-                <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#FFD401] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
-                    sUPPLY: 100,000,000,000.
-                </button>
-                </div>
-                <div class="relative max-[1024px]:w-full flex justify-center" data-aos="zoom-in"
-                data-aos-duration="800"
-                data-aos-delay="600">
-                  <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#68D0FF] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
-                    lP : 65% LOCKED 1 YEAR
-                </button>
-                </div>
-                <div class="relative max-[1024px]:w-full flex justify-center" data-aos="zoom-in"
-                data-aos-duration="800"
-                data-aos-delay="800">
-                <button class="uppercase w-[80%] max-[1024px]:max-w-[500px] xl:w-auto relative bg-[#FF5CA4] duration-200 hover:scale-105 px-[2rem] h-[60px] xl:h-[101px] text-[20px] xl:text-[1.4vw] min-[1600px]:text-[29.09px] border-black border-[1px] xl:border-[3px] rounded-[14px] xl:rounded-[26.73px]">
-                    TAX 5% BUY 5% SELL
-                </button>
-                </div>
-               
+            <img
+              class="w-100 horizontal-line"
+              src="data:image/svg+xml,%3csvg%20width='1020'%20height='1'%20viewBox='0%200%201020%201'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='-4.37114e-08'%20y1='0.5'%20x2='1020'%20y2='0.499911'%20stroke='url(%23paint0_linear_175_487)'%20stroke-dasharray='6%206'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_175_487'%20x1='4.37114e-08'%20y1='1.5'%20x2='1020'%20y2='1.49991'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='white'%20stop-opacity='0'/%3e%3cstop%20offset='0.539523'%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+              alt="horizontalLine"
+            />
+          </section>
+          <section class="qtc-stack" id="tech">
+            <div class="main-title" style="opacity: 1; transform: none;">
+              QTC Tech Stack
             </div>
-
-           </section>
-
-             <!-- lines -->
-            <div class="relative z-[11] w-full h-[50px] xl:h-auto flex justify-center items-center">
-            <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-full xl:h-auto  object-cover ">
-         </div>
-
-            <!-- roadmap -->
-            <section id="roadmap" class="w-full h-[1500px] md:h-[1628px] z-10 relative bg-[#FFD401] overflow-hidden flex justify-center items-center">
-                <!-- cloud -->
-                <img src="./assets/images/cloud_roadmap.png" alt="cloud" class="w-full h-auto absolute left-0 top-[-10vw] min-[1900px]:top-[-20vw] z-0">
-
-                <!-- text -->
-                <h2 class="absolute z-[10] uppercase title top-[3%] text-center text-white text-[60px] xl:text-[110px]">rOAD MAP</h2>
-
-                <!-- rockect -->
-                <img src="./assets/images/rockets.png" alt="" class="w-[404px] h-auto absolute object-contain top-[5vw] z-[1]">
-
-                <!-- lines -->
-                <img src="./assets/images/roadmap_lines.svg" alt="" class="w-auto h-[1506px] absolute  object-contain top-[20vw] md:top-[15vw] z-0">
-                <!-- bottom cloud -->
-                <img src="./assets/images/cloud_bottm.png" alt="" class="w-auto h-[200px] absolute object-contain bottom-[-9%] z-0">
-
-                <!-- phase container -->
-                <div class="phase_container absolute w-full xl:w-[980px] h-[40%] flex justify-center items-center">
-
-                    <div class="phase absolute w-[80%] h-[240px] md:h-[306px] md:w-[450px] bg-[#FFE04A] border-[#EAC40A] border-[4px] rounded-md top-[-5%] md:top-0 xl:left-0 py-[1rem] px-[1.5rem] flex flex-col gap-[1.5rem]" data-aos="zoom-in"
-                    data-aos-duration="800"
-                    data-aos-delay="200">
-                        <h1 class="uppercase leading-[1] text-white text-[30px] md:text-[56px]">phase 1</h1>
-
-                        <div class="relative w-full h-auto outfit_font text-[12px] md:text-[20px] flex flex-col gap-[.5rem]">
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Idea</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Development</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Audit & KYC</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>PR & Marketing</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Presale on Pinksale</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="phase absolute w-[80%] h-[240px] md:h-[306px] md:w-[450px] bg-[#FFE04A] border-[#EAC40A] border-[4px] rounded-md top-[60%] xl:right-0 py-[1rem] px-[1.5rem] flex flex-col gap-[1.5rem]" data-aos="zoom-in"
-                    data-aos-duration="800"
-                    data-aos-delay="400">
-                        <h1 class="uppercase leading-[1] text-white text-[30px] md:text-[56px]">phase 2</h1>
-
-                        <div class="relative w-full h-auto outfit_font text-[12px] md:text-[20px] flex flex-col gap-[.5rem]">
-                            
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Idea</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Development</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Audit & KYC</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>PR & Marketing</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Presale on Pinksale</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="phase absolute w-[80%] h-[240px] md:h-[306px] md:w-[450px] bg-[#FFE04A] border-[#EAC40A] border-[4px] rounded-md bottom-[-60%] xl:bottom-[-70%] xl:left-0 py-[1rem] px-[1.5rem] flex flex-col gap-[1.5rem]" data-aos="zoom-in"
-                    data-aos-duration="800"
-                    data-aos-delay="200">
-                        <h1 class="uppercase leading-[1] text-white text-[30px] md:text-[56px]">phase 3</h1>
-
-                        <div class="relative w-full h-auto outfit_font text-[12px] md:text-[20px] flex flex-col gap-[.5rem]">
-                            
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Idea</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Development</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Audit & KYC</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>PR & Marketing</p>
-                            </div>
-                            <div class="flex gap-[.35rem] md:gap-[.75rem]">
-                                <img src="./assets/images/phase_icon.svg" alt="phase" class="object-contain h-auto w-[20px] md:w-[32px]">
-                                <p>Presale on Pinksale</p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    
-
-                </div>
-
-            </section>
-
-
-            <!-- lines -->
-            <div class="relative w-full h-[50px] xl:h-auto flex justify-center items-center">
-                <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[2] h-full xl:h-auto  object-cover ">
-             </div>
-
-           <!-- footer -->
-           <section class="w-full z-10 h-auto xl:h-[600px] relative items-end flex justify-center">
-            
-            <!-- content -->
-            <div class="h-auto xl:h-auto w-full flex justify-between items-center max-w-[2000px] xl:px-[2rem] max-[1024px]:flex-col" >
-                <h1 class="title text-[50px] md:text-[105.11px] text-white max-[1024px]:my-[50px]" data-aos="zoom-in"
-                data-aos-duration="800"
-                data-aos-delay="200">BRETT</h1>
-                <img src="./assets/images/brett.png" alt="brett" class="w-[492px] h-auto object-contain hidden lg:block" data-aos="fade-up"
-                data-aos-duration="800"
-                data-aos-delay="200">
-                <div class="patners xl:w-[700px] min-[1800px]:w-[810px]" data-aos="fade-left"
-                data-aos-duration="800"
-                data-aos-delay="200">
-                    <h2 class="uppercase max-[1024px]:text-center text-[30px] xl:text-[40px] text-white">our partners</h2>
-                    <div class="flex mt-[1rem] gap-[2rem] w-[360px] xl:w-full flex-wrap max-[1024px]:justify-center">
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners1.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners2.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners3.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners4.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners5.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners6.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners7.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners8.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners9.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners10.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners11.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                        <div class="patner w-[60px] h-[60px] xl:w-[70px] xl:h-[75px] min-[1700px]:w-[93px] min-[1700px]:h-[85px] relative border-[2px] border-[#067EBA] bg-[#81D5FF] rounded-sm flex justify-center items-center">
-                            <img src="./assets/images/patners12.png" alt="partners" class="object-contain h-auto w-[50%]">
-                        </div>
-                    </div>
-                </div>
-                <img src="./assets/images/brett.png" alt="brett" class="w-[80%] h-auto object-contain mt-[50px] lg:hidden">
+            <div class="box">
+              <img
+                src="./static/media/demo-loop-2-BchwXtUD.gif"
+                alt="loopBlock"
+                class="img-loop"
+                style="opacity: 1; transform: none;"
+              />
+              <div class="box-title" style="opacity: 1; transform: none;">
+                Quantum-Resistant Cryptography
+              </div>
+              <div class="sub-title" style="opacity: 1; transform: none;">
+                Quantum Paradigm uses lattice-based cryptographic algorithms like
+                the Shortest Vector Problem (SVP) and Learning With Errors (LWE)
+                to protect against quantum computing attacks. These algorithms
+                are too complex for classical and quantum computers to solve,
+                ensuring strong protection for our network’s transactions and
+                data.
+              </div>
             </div>
-
-           </section>
-
-           <!-- by -->
-           <div class="by relative uppercase z-10 w-full h-auto max-[1024px]:py-[1rem] xl:h-[88px] flex justify-center bg-[#FFD401]">
-
-            <div class="flex justify-between items-center relative h-full w-full max-[1024px]:flex-col max-w-[2000px] gap-[1rem] px-[3rem]">
-                <p class="relative text-[14px]">©2024 ,$bRETT ,all rights reserved.</p>
-
-                <div class="social flex items-center relative  gap-[1rem]">
-                    <a href="https://x.com/" target="_blank" class="media hover:scale-110 duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#F9DF94] flex justify-center items-center">
-                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
-                            <img src="./assets/images/twitter.png" alt="twitter" class="w-[50%] h-auto object-contain">
-                        </div>
-                    </a>
-                    <a href="https://telegram.org/" target="_blank" class="media hover:scale-110 duration-300 relative w-[43px] h-[40px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-[10.03px] bg-[#FFD7E2] flex justify-center items-center">
-                        <div class="icon relative h-[85%] w-[85%] border-[1px] border-black rounded-[inherit] flex justify-center items-center">
-                            <img src="./assets/images/telegram.png" alt="telegram" class="w-[50%] h-auto object-contain">
-                        </div>
-                    </a>
-                </div>
+            <div class="box right">
+              <img
+                src="./static/media/demo-loop-2-BchwXtUD.gif"
+                alt="loopBlock"
+                class="img-loop"
+                style="opacity: 1; transform: none;"
+              />
+              <div class="box-title" style="opacity: 1; transform: none;">
+                Privacy-Preserving <br />
+                Techniques
+              </div>
+              <div class="sub-title" style="opacity: 1; transform: none;">
+                • zk-SNARKs: These cryptographic proofs validate transactions
+                without revealing underlying data, ensuring privacy and security
+                on the blockchain.
+              </div>
+              <div class="sub-title mt-4" style="opacity: 1; transform: none;">
+                • Fully Homomorphic Encryption (FHE): FHE allows computations on
+                encrypted data without needing to decrypt it, keeping user data
+                confidential during processing.
+              </div>
             </div>
-
-           
-
-           </div>
-
-           <!-- rotate image -->
-         <div class="bottom-0 w-full h-full absolute overflow-hidden">
-            <div class="rotate w-full h-auto absolute left-0  bottom-[-30vw] xl:bottom-[-50vw] min-[2500px]:bottom-[-40vw] z-0   flex justify-center items-center">
-                <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
-                 <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
-                 <img src="./assets/images/rotate.png" alt="" class="w-[1000px] xl:w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
+            <div class="box">
+              <img
+                src="./static/media/demo-loop-2-BchwXtUD.gif"
+                alt="loopBlock"
+                class="img-loop"
+                style="opacity: 1; transform: none;"
+              />
+              <div class="box-title" style="opacity: 1; transform: none;">
+                Quantum Secure Proof of Stake (QsPOS)
+              </div>
+              <div class="sub-title" style="opacity: 1; transform: none;">
+                Our QsPOS consensus mechanism boosts security and efficiency by
+                requiring validators to stake QTC tokens. It maintains network
+                integrity with a fair validator selection process, efficient
+                block proposal and validation, and penalties for malicious
+                behavior
+              </div>
+            </div>
+          </section>
+          <section class="Paradigm">
+            <div class="main-title" style="opacity: 1; transform: none;">
+              The settlement layer of the future
+            </div>
+            <div class="d-grid">
+              <div
+                class="card-box"
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">[1] Unmatched Security</div>
+                <div class="content">
+                  Our use of quantum-resistant cryptography ensures that Quantum
+                  Paradigm remains secure against future quantum threats. By
+                  implementing lattice-based algorithms, we provide a level of
+                  security that is designed to withstand even the most advanced
+                  quantum attacks.
                 </div>
               </div>
-         </div>
-
+              <div
+                class="card-box"
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">[2] Advanced Privacy</div>
+                <div class="content">
+                  Quantum Paradigm prioritizes user privacy through the integration
+                  of zk-SNARKs and FHE. These technologies enable private
+                  transactions and computations, ensuring that sensitive
+                  information is never exposed.
+                </div>
+              </div>
+              <div
+                class="card-box"
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">[3] Innovative Consensus Mechanism</div>
+                <div class="content">
+                  Our Quantum Secure Proof of Stake (QsPOS) consensus mechanism
+                  combines the best aspects of Proof of Stake with enhanced
+                  security features, making our network both efficient and
+                  robust against attacks.
+                </div>
+              </div>
+              <div
+                class="card-box"
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">[4] Comprehensive Tokenomics</div>
+                <div class="content">
+                  Our tokenomics model is designed to ensure the sustainable
+                  growth of the Quantum Paradigm ecosystem. With a focus on
+                  rewarding validators, supporting development, and engaging the
+                  community, we aim to build a thriving and resilient network.
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-box last"
+              style="opacity: 1; transform: translateY(0%) translateZ(0px);"
+            >
+              <div class="title">[5] Future-Proof Technology</div>
+              <div class="content">
+                Quantum Paradigm is designed with the future in mind. Our roadmap
+                includes the integration of AI-driven anomaly detection and
+                optimization, ensuring that our blockchain remains at the
+                forefront of technological innovation.
+              </div>
+            </div>
+          </section>
+          <section
+            class="validator"
+            id="validators"
+            style="opacity: 1; transform: none;"
+          >
+            <div class="row align-items-center">
+              <div class="col-md-12 col-lg-7">
+                <div class="max-w-validator">
+                  <div class="main-title">Become a Validator</div>
+                  <div class="sub-title">
+                    Run a master node and earn rewards by participating in
+                    securing the network. Help us maintain decentralization and
+                    network integrity.
+                  </div>
+                  <button class="black-btn">Join Now</button>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-5">
+                <div class="text-center text-lg-end">
+                  <img
+                    src="./static/media/atoms-DBGePYBV.gif"
+                    alt="atoms"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="road-map" id="roadMap">
+            <div class="main-title" style="opacity: 1; transform: none;">
+              Our Roadmap
+            </div>
+            <div class="sub-title" style="opacity: 1; transform: none;">
+              We are a driven team, committed to adaptability and
+              experimentation. This is the ethos of the development and
+              achievements of Quantum Paradigm as we progress through the
+              milestones outlined in our roadmap
+            </div>
+            <div
+              class="border-box border-top-0 border-start-0 top-card pt-md-0"
+            >
+              <div class="triangle-outer top d-block d-md-none">
+                <img
+                  src="./static/media/diamond-2-DxFW4dIj.gif"
+                  alt="triangle"
+                  class="triangle-img"
+                />
+              </div>
+              <div class="text-center d-block d-md-none my-5">
+                <img
+                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
+                  alt="verticalLine"
+                />
+              </div>
+              <div
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">Research and Development</div>
+                <div class="content">
+                  <div>
+                    - Research quantum-resistant cryptographic algorithms.
+                  </div>
+                  <div>
+                    - Design the Quantum Secure Proof of Stake (QsPOS) consensus
+                    mechanism.
+                  </div>
+                  <div>
+                    - Develop the initial protocol architecture with zk-SNARKs.
+                  </div>
+                  <div>
+                    - Implement smart contracts for the privacy stablecoin
+                    (USDQ).
+                  </div>
+                  <div>- Develop and deploy the bridge for wQTC.</div>
+                  <div>
+                    - Conduct internal security audits and peer reviews.
+                  </div>
+                </div>
+              </div>
+              <div class="triangle-outer top top d-none d-md-block">
+                <img
+                  src="./static/media/diamond-2-DxFW4dIj.gif"
+                  alt="triangle"
+                  class="triangle-img"
+                />
+              </div>
+            </div>
+            <div class="border-box border-top-0 border-end-0">
+              <div class="text-center d-block d-md-none my-5">
+                <img
+                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
+                  alt="verticalLine"
+                />
+              </div>
+              <div
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">Testnet Launch</div>
+                <div class="content">
+                  <div>
+                    - Launch the testnet with a limited number of validators.
+                  </div>
+                  <div>
+                    - Test the QsPOS consensus mechanism and privacy-preserving
+                    transactions.
+                  </div>
+                  <div>
+                    - Add the initial liquidity pool on Ethereum for wQTC.
+                  </div>
+                  <div>- Refine the bridge for wQTC to QTC mainnet tokens.</div>
+                  <div>- Engage the developer community to resolve bugs.</div>
+                </div>
+              </div>
+            </div>
+            <div class="border-box border-top-0 border-start-0">
+              <div class="text-center d-block d-md-none my-5">
+                <img
+                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
+                  alt="verticalLine"
+                />
+              </div>
+              <div
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">Mainnet Launch</div>
+                <div class="content">
+                  <div>- Transition from testnet to mainnet.</div>
+                  <div>
+                    - Enable staking and delegated staking functionalities.
+                  </div>
+                  <div>- Launch the privacy stablecoin (USDQ).</div>
+                  <div>- Conduct third-party security audits.</div>
+                </div>
+              </div>
+            </div>
+            <div class="border-box border-top-0 border-end-0">
+              <div class="text-center d-block d-md-none my-5">
+                <img
+                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
+                  alt="verticalLine"
+                />
+              </div>
+              <div
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">Ecosystem Expansion</div>
+                <div class="content">
+                  <div>
+                    - Develop and deploy decentralized applications (Dapps).
+                  </div>
+                  <div>- Introduce sharding techniques for scalability.</div>
+                  <div>
+                    - Launch Layer 2 solutions to reduce on-chain congestion.
+                  </div>
+                  <div>
+                    - Expand the validator network and increase
+                    decentralization.
+                  </div>
+                  <div>- Implement additional privacy-preserving features.</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="border-box border-top-0 border-start-0 border-bottom-0 pb-md-0"
+            >
+              <div class="text-center d-block d-md-none my-5">
+                <img
+                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
+                  alt="verticalLine"
+                />
+              </div>
+              <div
+                style="opacity: 1; transform: translateX(0%) translateZ(0px);"
+              >
+                <div class="title">Long-Term Growth</div>
+                <div class="content">
+                  <div>
+                    - Regularly update the protocol with advancements in
+                    cryptography and blockchain.
+                  </div>
+                  <div>
+                    - Enhance governance for more inclusive decision-making.
+                  </div>
+                  <div>
+                    - Expand partnerships with other projects and institutions.
+                  </div>
+                  <div>
+                    - Engage the community through educational initiatives and
+                    hackathons.
+                  </div>
+                  <div>
+                    - Monitor regulatory compliance and adapt to evolving
+                    standards.
+                  </div>
+                </div>
+              </div>
+              <div class="text-center d-block d-md-none my-5">
+                <img
+                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
+                  alt="verticalLine"
+                />
+              </div>
+              <div class="triangle-outer">
+                <img
+                  src="./static/media/diamond-2-DxFW4dIj.gif"
+                  alt="triangle"
+                  class="triangle-img"
+                />
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer>
+          <div style="  transform: translateY(0%) translateZ(0px);">
+            <img
+              src="./static/media/logo-wide-7Gi-2v26.svg"
+              alt="logo"
+              class="logo cursor-pointer"
+            />
+            <div class="d-flex justify-content-center align-items-center gpa-4">
+              <a href="https://t.me/Quantum_Paradigm"
+                ><img
+                  class="cursor-pointer"
+                  src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_175_370)'%3e%3cpath%20d='M30%2015C30%2018.9782%2028.4196%2022.7936%2025.6066%2025.6066C22.7936%2028.4196%2018.9782%2030%2015%2030C11.0218%2030%207.20644%2028.4196%204.3934%2025.6066C1.58035%2022.7936%200%2018.9782%200%2015C0%2011.0218%201.58035%207.20644%204.3934%204.3934C7.20644%201.58035%2011.0218%200%2015%200C18.9782%200%2022.7936%201.58035%2025.6066%204.3934C28.4196%207.20644%2030%2011.0218%2030%2015ZM15.5381%2011.0738C14.0781%2011.6813%2011.1619%2012.9375%206.78938%2014.8425C6.08063%2015.1237%205.70875%2015.4%205.67375%2015.6712C5.6175%2016.1269%206.18938%2016.3069%206.9675%2016.5525L7.29563%2016.6556C8.06063%2016.905%209.09188%2017.1956%209.62625%2017.2069C10.1137%2017.2194%2010.6562%2017.0194%2011.2537%2016.6069C15.34%2013.8494%2017.4488%2012.4556%2017.58%2012.4256C17.6737%2012.4031%2017.805%2012.3769%2017.8913%2012.4556C17.9775%2012.5344%2017.97%2012.6806%2017.9606%2012.72C17.9044%2012.9619%2015.66%2015.0469%2014.4994%2016.1269C14.1375%2016.4644%2013.8806%2016.7025%2013.8281%2016.7569C13.7126%2016.8751%2013.595%2016.9913%2013.4756%2017.1056C12.7631%2017.7919%2012.2306%2018.3056%2013.5037%2019.1456C14.1169%2019.5506%2014.6081%2019.8825%2015.0975%2020.2162C15.63%2020.58%2016.1625%2020.9419%2016.8525%2021.3956C17.0275%2021.5106%2017.1963%2021.6275%2017.3588%2021.7463C17.9794%2022.1887%2018.54%2022.5863%2019.2281%2022.5225C19.6294%2022.485%2020.0438%2022.11%2020.2537%2020.985C20.7506%2018.3281%2021.7275%2012.5737%2021.9525%2010.2019C21.9666%2010.0047%2021.9585%209.80658%2021.9281%209.61125C21.9099%209.45376%2021.8337%209.30871%2021.7144%209.20438C21.5435%209.08707%2021.3403%209.0261%2021.1331%209.03C20.5706%209.03938%2019.7025%209.34125%2015.5381%2011.0738Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_175_370'%3e%3crect%20width='30'%20height='30'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                  alt="telegram"
+                  href="" /></a
+              ><a href="https://x.com/QTParadigm"
+                ><img
+                  class="cursor-pointer"
+                  src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M26.9824%2026.7188L17.6106%2013.0589L17.6266%2013.0717L26.0767%203.28125H23.2529L16.3693%2011.25L10.9028%203.28125H3.49708L12.2465%2016.0345L12.2455%2016.0334L3.01758%2026.7188H5.84136L13.4943%2017.853L19.5767%2026.7188H26.9824ZM9.78398%205.41192L22.9332%2024.5881H20.6955L7.53565%205.41192H9.78398Z'%20fill='white'/%3e%3c/svg%3e"
+                  alt="xTwitter" /></a
+              ><a href="https://github.com/Quantum-Paradigm"
+                ><img
+                  class="cursor-pointer"
+                  src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M15%202.5C13.3585%202.5%2011.733%202.82332%2010.2165%203.45151C8.69989%204.07969%207.3219%205.00043%206.16117%206.16117C3.81696%208.50537%202.5%2011.6848%202.5%2015C2.5%2020.525%206.0875%2025.2125%2011.05%2026.875C11.675%2026.975%2011.875%2026.5875%2011.875%2026.25V24.1375C8.4125%2024.8875%207.675%2022.4625%207.675%2022.4625C7.1%2021.0125%206.2875%2020.625%206.2875%2020.625C5.15%2019.85%206.375%2019.875%206.375%2019.875C7.625%2019.9625%208.2875%2021.1625%208.2875%2021.1625C9.375%2023.0625%2011.2125%2022.5%2011.925%2022.2C12.0375%2021.3875%2012.3625%2020.8375%2012.7125%2020.525C9.9375%2020.2125%207.025%2019.1375%207.025%2014.375C7.025%2012.9875%207.5%2011.875%208.3125%2010.9875C8.1875%2010.675%207.75%209.375%208.4375%207.6875C8.4375%207.6875%209.4875%207.35%2011.875%208.9625C12.8625%208.6875%2013.9375%208.55%2015%208.55C16.0625%208.55%2017.1375%208.6875%2018.125%208.9625C20.5125%207.35%2021.5625%207.6875%2021.5625%207.6875C22.25%209.375%2021.8125%2010.675%2021.6875%2010.9875C22.5%2011.875%2022.975%2012.9875%2022.975%2014.375C22.975%2019.15%2020.05%2020.2%2017.2625%2020.5125C17.7125%2020.9%2018.125%2021.6625%2018.125%2022.825V26.25C18.125%2026.5875%2018.325%2026.9875%2018.9625%2026.875C23.925%2025.2%2027.5%2020.525%2027.5%2015C27.5%2013.3585%2027.1767%2011.733%2026.5485%2010.2165C25.9203%208.69989%2024.9996%207.3219%2023.8388%206.16117C22.6781%205.00043%2021.3001%204.07969%2019.7835%203.45151C18.267%202.82332%2016.6415%202.5%2015%202.5Z'%20fill='white'/%3e%3c/svg%3e"
+                  alt="github" /></a
+              ><img
+                class="cursor-pointer"
+                src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M12.354%202.75852C12.9486%202.68845%2013.5477%202.84551%2014.0314%203.19828C14.5151%203.55104%2014.8477%204.07348%2014.9627%204.66102L14.994%204.86977L15.0002%204.99977V13.7498C15.0003%2014.0559%2015.1127%2014.3514%2015.3161%2014.5802C15.5196%2014.809%2015.7999%2014.9552%2016.104%2014.991L16.2502%2014.9998H24.7502C25.4133%2014.9998%2026.0492%2015.2632%2026.518%2015.732C26.9868%2016.2008%2027.2502%2016.8367%2027.2502%2017.4998C27.2502%2017.5949%2027.2393%2017.6896%2027.2177%2017.7823C26.7175%2019.9406%2025.6526%2021.9272%2024.1321%2023.5386C22.6116%2025.15%2020.6901%2026.3283%2018.5644%2026.9529C16.4387%2027.5775%2014.1852%2027.6259%2012.0347%2027.0931C9.88418%2026.5604%207.91389%2025.4656%206.32561%2023.921C4.73733%2022.3763%203.58813%2020.4373%202.9957%2018.3024C2.40327%2016.1675%202.3889%2013.9136%202.95405%2011.7713C3.51921%209.62908%204.64359%207.67553%206.21205%206.11075C7.7805%204.54596%209.73667%203.42616%2011.8802%202.86602L12.2177%202.78227L12.354%202.75852Z'%20fill='white'/%3e%3cpath%20d='M17.5%204.37509V11.2501C17.5%2011.5816%2017.6317%2011.8996%2017.8661%2012.134C18.1005%2012.3684%2018.4185%2012.5001%2018.75%2012.5001H25.625C25.8248%2012.5%2026.0217%2012.4521%2026.1991%2012.3603C26.3766%2012.2684%2026.5294%2012.1354%2026.6449%2011.9724C26.7603%2011.8093%2026.835%2011.6209%2026.8626%2011.423C26.8903%2011.2252%2026.8701%2011.0236%2026.8038%2010.8351C26.1829%209.07176%2025.1745%207.47013%2023.8527%206.14814C22.5309%204.82614%2020.9295%203.81745%2019.1663%203.19634C18.9777%203.12976%2018.776%203.10938%2018.5779%203.1369C18.3799%203.16443%2018.1913%203.23906%2018.0281%203.35453C17.8649%203.47001%2017.7317%203.62295%2017.6398%203.80053C17.5479%203.97811%2017.5%204.17515%2017.5%204.37509Z'%20fill='white'/%3e%3c/svg%3e"
+                alt="pieChart"
+              />
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
 
-    <!-- aos js scroll animation -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-
-        // aos 
-        AOS.init({ 
-           once: true
-        });   
-
-        // menu navbar
-        const menu = document.querySelector('.menu');
-        const menuBtn = document.querySelector('.menu-button');
-
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active')
-            menu.classList.toggle('active')
-        });
-
-        // copy address
-        // copy address
-        const copybtns = document.querySelectorAll(".copy_address");
-
-        copybtns.forEach(copybtn => {
-            copybtn.addEventListener("click", function () {
-                let textCopied = copybtn.querySelector('.value_copied');
-                let intervalId;
-                let addressText = document.querySelector(".value").getAttribute('data-set');
-                textCopied.innerHTML = 'COPIED';
-
-                if (intervalId) {
-                    clearInterval(intervalId);
-                }
-
-                intervalId = setInterval(() => {
-                    textCopied.innerHTML = '98txHDF1fFbY5rAWK12bKN1eS2qW2BA8r6QF2Co73pry';
-                    clearInterval(intervalId);
-                }, 1000);
-
-                navigator.clipboard.writeText(addressText);
-            });
-
-            
-        })
-
-        // change image
-        document.addEventListener('DOMContentLoaded', function() {
-
-        const aboutImage = document.querySelector('#about .bg_content'); 
-
-        function checkViewportWidth() { 
-            if (window.innerWidth < 1300 && window.innerWidth > 500) {
-                aboutImage.setAttribute('src', "./assets/images/bg_about_mobile.png") 
-            } else if(window.innerWidth < 500){ 
-                aboutImage.setAttribute('src', "./assets/images/bg_about_mobile_sm.png") 
-            } else { 
-                aboutImage.setAttribute('src', "./assets/images/bg_about.svg") 
-            }
-        }
-
-        checkViewportWidth(); 
-        window.addEventListener('resize', checkViewportWidth);
-
-        });
- 
-
-
-
-    </script>
-</body>
-
+    <!-- <script src="./static/js/index.js"></script> -->
+  </body>
 </html>
