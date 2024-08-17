@@ -32,3 +32,25 @@ document.body.addEventListener('click', (event) => {
         dropdown_menu.style.display = 'none';
     }
 });
+
+// copy button
+    // copy address
+    const copybtn = document.querySelector(".contractCopy");
+    
+     copybtn.addEventListener("click", function() { 
+        let textSpan = copybtn.querySelector('span');
+        let intervalId;
+            let addressText = document.querySelector(".value").getAttribute('data-set');
+            textSpan.innerHTML = '00000000000000000000000000000000000000000DEAD';
+
+            if (intervalId) {  
+                clearInterval(intervalId);
+            }
+
+            intervalId = setInterval(() => {
+                textSpan.innerHTML = 'COPIED'; 
+                clearInterval(intervalId);  
+            }, 1000);
+
+            navigator.clipboard.writeText(addressText);
+        }); 
