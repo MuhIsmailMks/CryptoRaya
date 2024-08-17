@@ -13990,9 +13990,17 @@ body {
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .cursor-pointer {
-    cursor: pointer
+    cursor: pointer;
+}
+
+@media screen and (max-width:1000px) {
+    .contractValue{
+        max-width: 50%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
