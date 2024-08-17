@@ -26,12 +26,6 @@ function toggleDropdown(event) {
 }
  
 white_btn.addEventListener('click', toggleDropdown);
- 
-// document.body.addEventListener('click', (event) => {
-//     if (!dropdown_menu.contains(event.target) && !white_btn.contains(event.target)) {
-//         dropdown_menu.style.display = 'none';
-//     }
-// });
 
 document.body.addEventListener('click', (event) => {
     if (!dropdown_menu.contains(event.target) && !white_btn.contains(event.target)) {
