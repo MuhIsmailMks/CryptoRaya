@@ -13686,11 +13686,11 @@ footer .d-flex {
     }
 }
 
-.cloak {
+.Paradigm {
     padding-top: 50px
 }
 
-.cloak .main-title {
+.Paradigm .main-title {
     font-family: IBM Plex Mono;
     font-size: 40px;
     font-weight: 400;
@@ -13699,23 +13699,27 @@ footer .d-flex {
     margin-bottom: 120px
 }
 
-.cloak .d-grid {
+.Paradigm .d-grid {
     grid-template-columns: auto auto;
     grid-gap: 98px
 }
 
-.cloak .card-box {
+.Paradigm .card-box {
     cursor: pointer;
     border: 1px solid #fff;
-    transition: .4s all
+    transition: .4s all;
+    -webkit-transition: .4s all;
+    -moz-transition: .4s all;
+    -ms-transition: .4s all;
+    -o-transition: .4s all;
 }
 
-.cloak .card-box:hover {
+.Paradigm .card-box:hover {
     box-shadow: 0 0 36px #fff9;
     transition: .4s all
 }
 
-.cloak .card-box .title {
+.Paradigm .card-box .title {
     padding: 9px 21px;
     font-family: IBM Plex Mono;
     font-size: 24px;
@@ -13726,7 +13730,7 @@ footer .d-flex {
     color: #000
 }
 
-.cloak .card-box .content {
+.Paradigm .card-box .content {
     font-family: Roboto Mono;
     font-size: 16px;
     font-weight: 300;
@@ -13735,13 +13739,13 @@ footer .d-flex {
     padding: 40px 45px
 }
 
-.cloak .card-box.last {
+.Paradigm .card-box.last {
     max-width: 556px;
     margin: 98px auto 0
 }
 
 @media only screen and (max-width: 1366px) {
-    .cloak .main-title {
+    .Paradigm .main-title {
         font-size:33px;
         font-weight: 400;
         line-height: 40.1px
@@ -13749,14 +13753,14 @@ footer .d-flex {
 }
 
 @media only screen and (max-width: 991px) {
-    .cloak .d-grid {
+    .Paradigm .d-grid {
         grid-template-columns:auto;
         gap: 60px
     }
 }
 
 @media only screen and (max-width: 768px) {
-    .cloak .main-title {
+    .Paradigm .main-title {
         font-size:27px;
         font-weight: 400;
         line-height: 35.1px;
@@ -13764,11 +13768,11 @@ footer .d-flex {
         margin-bottom: 80px
     }
 
-    .cloak .card-box.last {
+    .Paradigm .card-box.last {
         margin-top: 60px
     }
 
-    .cloak .card-box .title {
+    .Paradigm .card-box .title {
         padding: 13px 21px;
         font-size: 20px;
         font-weight: 700;
@@ -13776,7 +13780,7 @@ footer .d-flex {
         text-align: left
     }
 
-    .cloak .card-box .content {
+    .Paradigm .card-box .content {
         font-size: 16px;
         font-weight: 300;
         line-height: 21.1px;
