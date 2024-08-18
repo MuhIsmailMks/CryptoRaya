@@ -33,8 +33,7 @@ document.body.addEventListener('click', (event) => {
     }
 });
 
-// copy button
-    // copy address
+// copy button 
     const copybtn = document.querySelector(".contractCopy");
     
      copybtn.addEventListener("click", function() { 
@@ -50,7 +49,7 @@ document.body.addEventListener('click', (event) => {
             intervalId = setInterval(() => {
                 textSpan.innerHTML = 'COPIED'; 
                 clearInterval(intervalId);  
-            }, 1000);
+            }, 0);
 
             navigator.clipboard.writeText(addressText);
         }); 
