@@ -14020,6 +14020,23 @@ body {
     margin-bottom: 30px !important;
 }
 
+.hover_btn{
+    transition: .2s ease-in all;
+    -webkit-transition: .2s ease-in all;
+    -moz-transition: .2s ease-in all;
+    -ms-transition: .2s ease-in all;
+    -o-transition: .2s ease-in all;
+}
+
+.hover_btn:hover{
+    background-color: white;
+   
+}
+
+.hover_btn:hover span{
+    color: black !important;
+}
+
 @media screen and (max-width:1000px) {
     .contractValue{
         max-width: 50%;
