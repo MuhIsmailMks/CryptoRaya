@@ -1,1545 +1,695 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <style type="text/css">
-      :root,
-      :host {
-        --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
-        --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
-        --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
-        --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
-        --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
-        --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
-        --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-      }
 
-      svg:not(:root).svg-inline--fa,
-      svg:not(:host).svg-inline--fa {
-        overflow: visible;
-        box-sizing: content-box;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/hero_image.png">
+    
+    <!-- aos animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@100..900&family=Titan+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>FROG</title>
+</head>
+
+<body class="bg-[#20672C]">
+
+    <div class="container_site max-w-[100%] relative w-full h-auto min-h-[100vh] overflow-hidden">
+
+        <!-- navbar -->
+        <nav
+            class="w-full z-[999] justify-center h-[80px] xl:h-[100px] min-[1800px]:h-[120px] absolute left-0 top-0 max-w-[100%]  flex items-center bg-[#20672C] ">
 
-      .svg-inline--fa {
-        display: var(--fa-display, inline-block);
-        height: 1em;
-        overflow: visible;
-        vertical-align: -0.125em;
-      }
-      .svg-inline--fa.fa-2xs {
-        vertical-align: 0.1em;
-      }
-      .svg-inline--fa.fa-xs {
-        vertical-align: 0em;
-      }
-      .svg-inline--fa.fa-sm {
-        vertical-align: -0.0714285705em;
-      }
-      .svg-inline--fa.fa-lg {
-        vertical-align: -0.2em;
-      }
-      .svg-inline--fa.fa-xl {
-        vertical-align: -0.25em;
-      }
-      .svg-inline--fa.fa-2xl {
-        vertical-align: -0.3125em;
-      }
-      .svg-inline--fa.fa-pull-left {
-        margin-right: var(--fa-pull-margin, 0.3em);
-        width: auto;
-      }
-      .svg-inline--fa.fa-pull-right {
-        margin-left: var(--fa-pull-margin, 0.3em);
-        width: auto;
-      }
-      .svg-inline--fa.fa-li {
-        width: var(--fa-li-width, 2em);
-        top: 0.25em;
-      }
-      .svg-inline--fa.fa-fw {
-        width: var(--fa-fw-width, 1.25em);
-      }
-
-      .fa-layers svg.svg-inline--fa {
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .fa-layers-counter,
-      .fa-layers-text {
-        display: inline-block;
-        position: absolute;
-        text-align: center;
-      }
-
-      .fa-layers {
-        display: inline-block;
-        height: 1em;
-        position: relative;
-        text-align: center;
-        vertical-align: -0.125em;
-        width: 1em;
-      }
-      .fa-layers svg.svg-inline--fa {
-        -webkit-transform-origin: center center;
-        transform-origin: center center;
-      }
-
-      .fa-layers-text {
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        -webkit-transform-origin: center center;
-        transform-origin: center center;
-      }
-
-      .fa-layers-counter {
-        background-color: var(--fa-counter-background-color, #ff253a);
-        border-radius: var(--fa-counter-border-radius, 1em);
-        box-sizing: border-box;
-        color: var(--fa-inverse, #fff);
-        line-height: var(--fa-counter-line-height, 1);
-        max-width: var(--fa-counter-max-width, 5em);
-        min-width: var(--fa-counter-min-width, 1.5em);
-        overflow: hidden;
-        padding: var(--fa-counter-padding, 0.25em 0.5em);
-        right: var(--fa-right, 0);
-        text-overflow: ellipsis;
-        top: var(--fa-top, 0);
-        -webkit-transform: scale(var(--fa-counter-scale, 0.25));
-        transform: scale(var(--fa-counter-scale, 0.25));
-        -webkit-transform-origin: top right;
-        transform-origin: top right;
-      }
-
-      .fa-layers-bottom-right {
-        bottom: var(--fa-bottom, 0);
-        right: var(--fa-right, 0);
-        top: auto;
-        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-        transform: scale(var(--fa-layers-scale, 0.25));
-        -webkit-transform-origin: bottom right;
-        transform-origin: bottom right;
-      }
-
-      .fa-layers-bottom-left {
-        bottom: var(--fa-bottom, 0);
-        left: var(--fa-left, 0);
-        right: auto;
-        top: auto;
-        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-        transform: scale(var(--fa-layers-scale, 0.25));
-        -webkit-transform-origin: bottom left;
-        transform-origin: bottom left;
-      }
-
-      .fa-layers-top-right {
-        top: var(--fa-top, 0);
-        right: var(--fa-right, 0);
-        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-        transform: scale(var(--fa-layers-scale, 0.25));
-        -webkit-transform-origin: top right;
-        transform-origin: top right;
-      }
-
-      .fa-layers-top-left {
-        left: var(--fa-left, 0);
-        right: auto;
-        top: var(--fa-top, 0);
-        -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-        transform: scale(var(--fa-layers-scale, 0.25));
-        -webkit-transform-origin: top left;
-        transform-origin: top left;
-      }
-
-      .fa-1x {
-        font-size: 1em;
-      }
-
-      .fa-2x {
-        font-size: 2em;
-      }
-
-      .fa-3x {
-        font-size: 3em;
-      }
-
-      .fa-4x {
-        font-size: 4em;
-      }
-
-      .fa-5x {
-        font-size: 5em;
-      }
-
-      .fa-6x {
-        font-size: 6em;
-      }
-
-      .fa-7x {
-        font-size: 7em;
-      }
-
-      .fa-8x {
-        font-size: 8em;
-      }
-
-      .fa-9x {
-        font-size: 9em;
-      }
-
-      .fa-10x {
-        font-size: 10em;
-      }
-
-      .fa-2xs {
-        font-size: 0.625em;
-        line-height: 0.1em;
-        vertical-align: 0.225em;
-      }
-
-      .fa-xs {
-        font-size: 0.75em;
-        line-height: 0.0833333337em;
-        vertical-align: 0.125em;
-      }
-
-      .fa-sm {
-        font-size: 0.875em;
-        line-height: 0.0714285718em;
-        vertical-align: 0.0535714295em;
-      }
-
-      .fa-lg {
-        font-size: 1.25em;
-        line-height: 0.05em;
-        vertical-align: -0.075em;
-      }
-
-      .fa-xl {
-        font-size: 1.5em;
-        line-height: 0.0416666682em;
-        vertical-align: -0.125em;
-      }
-
-      .fa-2xl {
-        font-size: 2em;
-        line-height: 0.03125em;
-        vertical-align: -0.1875em;
-      }
-
-      .fa-fw {
-        text-align: center;
-        width: 1.25em;
-      }
-
-      .fa-ul {
-        list-style-type: none;
-        margin-left: var(--fa-li-margin, 2.5em);
-        padding-left: 0;
-      }
-      .fa-ul > li {
-        position: relative;
-      }
-
-      .fa-li {
-        left: calc(var(--fa-li-width, 2em) * -1);
-        position: absolute;
-        text-align: center;
-        width: var(--fa-li-width, 2em);
-        line-height: inherit;
-      }
-
-      .fa-border {
-        border-color: var(--fa-border-color, #eee);
-        border-radius: var(--fa-border-radius, 0.1em);
-        border-style: var(--fa-border-style, solid);
-        border-width: var(--fa-border-width, 0.08em);
-        padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
-      }
-
-      .fa-pull-left {
-        float: left;
-        margin-right: var(--fa-pull-margin, 0.3em);
-      }
-
-      .fa-pull-right {
-        float: right;
-        margin-left: var(--fa-pull-margin, 0.3em);
-      }
-
-      .fa-beat {
-        -webkit-animation-name: fa-beat;
-        animation-name: fa-beat;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(
-          --fa-animation-timing,
-          ease-in-out
-        );
-        animation-timing-function: var(--fa-animation-timing, ease-in-out);
-      }
-
-      .fa-bounce {
-        -webkit-animation-name: fa-bounce;
-        animation-name: fa-bounce;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.28, 0.84, 0.42, 1)
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.28, 0.84, 0.42, 1)
-        );
-      }
-
-      .fa-fade {
-        -webkit-animation-name: fa-fade;
-        animation-name: fa-fade;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-      }
-
-      .fa-beat-fade {
-        -webkit-animation-name: fa-beat-fade;
-        animation-name: fa-beat-fade;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-        animation-timing-function: var(
-          --fa-animation-timing,
-          cubic-bezier(0.4, 0, 0.6, 1)
-        );
-      }
-
-      .fa-flip {
-        -webkit-animation-name: fa-flip;
-        animation-name: fa-flip;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(
-          --fa-animation-timing,
-          ease-in-out
-        );
-        animation-timing-function: var(--fa-animation-timing, ease-in-out);
-      }
-
-      .fa-shake {
-        -webkit-animation-name: fa-shake;
-        animation-name: fa-shake;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(--fa-animation-timing, linear);
-        animation-timing-function: var(--fa-animation-timing, linear);
-      }
-
-      .fa-spin {
-        -webkit-animation-name: fa-spin;
-        animation-name: fa-spin;
-        -webkit-animation-delay: var(--fa-animation-delay, 0s);
-        animation-delay: var(--fa-animation-delay, 0s);
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 2s);
-        animation-duration: var(--fa-animation-duration, 2s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(--fa-animation-timing, linear);
-        animation-timing-function: var(--fa-animation-timing, linear);
-      }
-
-      .fa-spin-reverse {
-        --fa-animation-direction: reverse;
-      }
-
-      .fa-pulse,
-      .fa-spin-pulse {
-        -webkit-animation-name: fa-spin;
-        animation-name: fa-spin;
-        -webkit-animation-direction: var(--fa-animation-direction, normal);
-        animation-direction: var(--fa-animation-direction, normal);
-        -webkit-animation-duration: var(--fa-animation-duration, 1s);
-        animation-duration: var(--fa-animation-duration, 1s);
-        -webkit-animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        animation-iteration-count: var(
-          --fa-animation-iteration-count,
-          infinite
-        );
-        -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
-        animation-timing-function: var(--fa-animation-timing, steps(8));
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .fa-beat,
-        .fa-bounce,
-        .fa-fade,
-        .fa-beat-fade,
-        .fa-flip,
-        .fa-pulse,
-        .fa-shake,
-        .fa-spin,
-        .fa-spin-pulse {
-          -webkit-animation-delay: -1ms;
-          animation-delay: -1ms;
-          -webkit-animation-duration: 1ms;
-          animation-duration: 1ms;
-          -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-          -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-          -webkit-transition-duration: 0s;
-          transition-duration: 0s;
-        }
-      }
-      @-webkit-keyframes fa-beat {
-        0%,
-        90% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-        45% {
-          -webkit-transform: scale(var(--fa-beat-scale, 1.25));
-          transform: scale(var(--fa-beat-scale, 1.25));
-        }
-      }
-      @keyframes fa-beat {
-        0%,
-        90% {
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-        45% {
-          -webkit-transform: scale(var(--fa-beat-scale, 1.25));
-          transform: scale(var(--fa-beat-scale, 1.25));
-        }
-      }
-      @-webkit-keyframes fa-bounce {
-        0% {
-          -webkit-transform: scale(1, 1) translateY(0);
-          transform: scale(1, 1) translateY(0);
-        }
-        10% {
-          -webkit-transform: scale(
-              var(--fa-bounce-start-scale-x, 1.1),
-              var(--fa-bounce-start-scale-y, 0.9)
-            )
-            translateY(0);
-          transform: scale(
-              var(--fa-bounce-start-scale-x, 1.1),
-              var(--fa-bounce-start-scale-y, 0.9)
-            )
-            translateY(0);
-        }
-        30% {
-          -webkit-transform: scale(
-              var(--fa-bounce-jump-scale-x, 0.9),
-              var(--fa-bounce-jump-scale-y, 1.1)
-            )
-            translateY(var(--fa-bounce-height, -0.5em));
-          transform: scale(
-              var(--fa-bounce-jump-scale-x, 0.9),
-              var(--fa-bounce-jump-scale-y, 1.1)
-            )
-            translateY(var(--fa-bounce-height, -0.5em));
-        }
-        50% {
-          -webkit-transform: scale(
-              var(--fa-bounce-land-scale-x, 1.05),
-              var(--fa-bounce-land-scale-y, 0.95)
-            )
-            translateY(0);
-          transform: scale(
-              var(--fa-bounce-land-scale-x, 1.05),
-              var(--fa-bounce-land-scale-y, 0.95)
-            )
-            translateY(0);
-        }
-        57% {
-          -webkit-transform: scale(1, 1)
-            translateY(var(--fa-bounce-rebound, -0.125em));
-          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-        }
-        64% {
-          -webkit-transform: scale(1, 1) translateY(0);
-          transform: scale(1, 1) translateY(0);
-        }
-        100% {
-          -webkit-transform: scale(1, 1) translateY(0);
-          transform: scale(1, 1) translateY(0);
-        }
-      }
-      @keyframes fa-bounce {
-        0% {
-          -webkit-transform: scale(1, 1) translateY(0);
-          transform: scale(1, 1) translateY(0);
-        }
-        10% {
-          -webkit-transform: scale(
-              var(--fa-bounce-start-scale-x, 1.1),
-              var(--fa-bounce-start-scale-y, 0.9)
-            )
-            translateY(0);
-          transform: scale(
-              var(--fa-bounce-start-scale-x, 1.1),
-              var(--fa-bounce-start-scale-y, 0.9)
-            )
-            translateY(0);
-        }
-        30% {
-          -webkit-transform: scale(
-              var(--fa-bounce-jump-scale-x, 0.9),
-              var(--fa-bounce-jump-scale-y, 1.1)
-            )
-            translateY(var(--fa-bounce-height, -0.5em));
-          transform: scale(
-              var(--fa-bounce-jump-scale-x, 0.9),
-              var(--fa-bounce-jump-scale-y, 1.1)
-            )
-            translateY(var(--fa-bounce-height, -0.5em));
-        }
-        50% {
-          -webkit-transform: scale(
-              var(--fa-bounce-land-scale-x, 1.05),
-              var(--fa-bounce-land-scale-y, 0.95)
-            )
-            translateY(0);
-          transform: scale(
-              var(--fa-bounce-land-scale-x, 1.05),
-              var(--fa-bounce-land-scale-y, 0.95)
-            )
-            translateY(0);
-        }
-        57% {
-          -webkit-transform: scale(1, 1)
-            translateY(var(--fa-bounce-rebound, -0.125em));
-          transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-        }
-        64% {
-          -webkit-transform: scale(1, 1) translateY(0);
-          transform: scale(1, 1) translateY(0);
-        }
-        100% {
-          -webkit-transform: scale(1, 1) translateY(0);
-          transform: scale(1, 1) translateY(0);
-        }
-      }
-      @-webkit-keyframes fa-fade {
-        50% {
-          opacity: var(--fa-fade-opacity, 0.4);
-        }
-      }
-      @keyframes fa-fade {
-        50% {
-          opacity: var(--fa-fade-opacity, 0.4);
-        }
-      }
-      @-webkit-keyframes fa-beat-fade {
-        0%,
-        100% {
-          opacity: var(--fa-beat-fade-opacity, 0.4);
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
-          transform: scale(var(--fa-beat-fade-scale, 1.125));
-        }
-      }
-      @keyframes fa-beat-fade {
-        0%,
-        100% {
-          opacity: var(--fa-beat-fade-opacity, 0.4);
-          -webkit-transform: scale(1);
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
-          transform: scale(var(--fa-beat-fade-scale, 1.125));
-        }
-      }
-      @-webkit-keyframes fa-flip {
-        50% {
-          -webkit-transform: rotate3d(
-            var(--fa-flip-x, 0),
-            var(--fa-flip-y, 1),
-            var(--fa-flip-z, 0),
-            var(--fa-flip-angle, -180deg)
-          );
-          transform: rotate3d(
-            var(--fa-flip-x, 0),
-            var(--fa-flip-y, 1),
-            var(--fa-flip-z, 0),
-            var(--fa-flip-angle, -180deg)
-          );
-        }
-      }
-      @keyframes fa-flip {
-        50% {
-          -webkit-transform: rotate3d(
-            var(--fa-flip-x, 0),
-            var(--fa-flip-y, 1),
-            var(--fa-flip-z, 0),
-            var(--fa-flip-angle, -180deg)
-          );
-          transform: rotate3d(
-            var(--fa-flip-x, 0),
-            var(--fa-flip-y, 1),
-            var(--fa-flip-z, 0),
-            var(--fa-flip-angle, -180deg)
-          );
-        }
-      }
-      @-webkit-keyframes fa-shake {
-        0% {
-          -webkit-transform: rotate(-15deg);
-          transform: rotate(-15deg);
-        }
-        4% {
-          -webkit-transform: rotate(15deg);
-          transform: rotate(15deg);
-        }
-        8%,
-        24% {
-          -webkit-transform: rotate(-18deg);
-          transform: rotate(-18deg);
-        }
-        12%,
-        28% {
-          -webkit-transform: rotate(18deg);
-          transform: rotate(18deg);
-        }
-        16% {
-          -webkit-transform: rotate(-22deg);
-          transform: rotate(-22deg);
-        }
-        20% {
-          -webkit-transform: rotate(22deg);
-          transform: rotate(22deg);
-        }
-        32% {
-          -webkit-transform: rotate(-12deg);
-          transform: rotate(-12deg);
-        }
-        36% {
-          -webkit-transform: rotate(12deg);
-          transform: rotate(12deg);
-        }
-        40%,
-        100% {
-          -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-      }
-      @keyframes fa-shake {
-        0% {
-          -webkit-transform: rotate(-15deg);
-          transform: rotate(-15deg);
-        }
-        4% {
-          -webkit-transform: rotate(15deg);
-          transform: rotate(15deg);
-        }
-        8%,
-        24% {
-          -webkit-transform: rotate(-18deg);
-          transform: rotate(-18deg);
-        }
-        12%,
-        28% {
-          -webkit-transform: rotate(18deg);
-          transform: rotate(18deg);
-        }
-        16% {
-          -webkit-transform: rotate(-22deg);
-          transform: rotate(-22deg);
-        }
-        20% {
-          -webkit-transform: rotate(22deg);
-          transform: rotate(22deg);
-        }
-        32% {
-          -webkit-transform: rotate(-12deg);
-          transform: rotate(-12deg);
-        }
-        36% {
-          -webkit-transform: rotate(12deg);
-          transform: rotate(12deg);
-        }
-        40%,
-        100% {
-          -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-      }
-      @-webkit-keyframes fa-spin {
-        0% {
-          -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes fa-spin {
-        0% {
-          -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      .fa-rotate-90 {
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-      }
-
-      .fa-rotate-180 {
-        -webkit-transform: rotate(180deg);
-        transform: rotate(180deg);
-      }
-
-      .fa-rotate-270 {
-        -webkit-transform: rotate(270deg);
-        transform: rotate(270deg);
-      }
-
-      .fa-flip-horizontal {
-        -webkit-transform: scale(-1, 1);
-        transform: scale(-1, 1);
-      }
-
-      .fa-flip-vertical {
-        -webkit-transform: scale(1, -1);
-        transform: scale(1, -1);
-      }
-
-      .fa-flip-both,
-      .fa-flip-horizontal.fa-flip-vertical {
-        -webkit-transform: scale(-1, -1);
-        transform: scale(-1, -1);
-      }
-
-      .fa-rotate-by {
-        -webkit-transform: rotate(var(--fa-rotate-angle, 0));
-        transform: rotate(var(--fa-rotate-angle, 0));
-      }
-
-      .fa-stack {
-        display: inline-block;
-        vertical-align: middle;
-        height: 2em;
-        position: relative;
-        width: 2.5em;
-      }
-
-      .fa-stack-1x,
-      .fa-stack-2x {
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: var(--fa-stack-z-index, auto);
-      }
-
-      .svg-inline--fa.fa-stack-1x {
-        height: 1em;
-        width: 1.25em;
-      }
-      .svg-inline--fa.fa-stack-2x {
-        height: 2em;
-        width: 2.5em;
-      }
-
-      .fa-inverse {
-        color: var(--fa-inverse, #fff);
-      }
-
-      .sr-only,
-      .fa-sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      }
-
-      .sr-only-focusable:not(:focus),
-      .fa-sr-only-focusable:not(:focus) {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-      }
-
-      .svg-inline--fa .fa-primary {
-        fill: var(--fa-primary-color, currentColor);
-        opacity: var(--fa-primary-opacity, 1);
-      }
-
-      .svg-inline--fa .fa-secondary {
-        fill: var(--fa-secondary-color, currentColor);
-        opacity: var(--fa-secondary-opacity, 0.4);
-      }
-
-      .svg-inline--fa.fa-swap-opacity .fa-primary {
-        opacity: var(--fa-secondary-opacity, 0.4);
-      }
-
-      .svg-inline--fa.fa-swap-opacity .fa-secondary {
-        opacity: var(--fa-primary-opacity, 1);
-      }
-
-      .svg-inline--fa mask .fa-primary,
-      .svg-inline--fa mask .fa-secondary {
-        fill: black;
-      }
-
-      .fad.fa-inverse,
-      .fa-duotone.fa-inverse {
-        color: var(--fa-inverse, #fff);
-      }
-    </style>
-    <link rel="icon" type="image/svg+xml" href="./static/media/logo-wide-7Gi-2v26.svg" />
-    <link rel="stylesheet" href="./static/css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-    name="description"
-    content="A Paradigm Secure & AI Enabled Privacy Layer 1"
-  />
-    <title>Paradigm</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <!-- AOS scroll effect cdn --> 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&amp;display=swap"
-      rel="stylesheet"
-    />
-    <script
-      type="module"
-      crossorigin=""
-      src="./static/media/index-CMa9gN9e.js"
-    ></script>
-    <link rel="stylesheet" crossorigin="" href="./static/media/index-DapL2GbO.css" />
-  </head>
-
-  <body>
-
-    <div id="root">
-      <div>
-        <header
-          class="d-flex justify-content-center align-items-center"
-          
-        >
-          <img
-            src="./static/media/logo-wide-7Gi-2v26.svg"
-            alt="logo"
-            class="me-3 cursor-pointer"
-          />
-          <div class="outer-links d-flex align-items-center">
-            <span><a href="#home">Home</a></span
-            ><span><a href="#about">About</a></span
-            ><span><a href="#tech">Technology</a></span
-            ><span><a href="#validators">Validators</a></span
-            ><span><a href="#roadMap">Roadmap</a></span>
-            <div style="position: relative;">
-              <button class="white-btn ms-3">
-                Whitepaper<span style="margin-left: 20px; border: none;"
-                  ><svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="chevron-down"
-                    class="svg-inline--fa fa-chevron-down"
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                    ></path></svg ></span>
-              </button>
-              <div class="dropdown-menu ms-3" style="display: none;"><a href="https://drive.google.com/file/d/1ctwwrnOnRMxqoymP8yeO3qlu2vUTHOfK/view" target="_blank">Whitepaper </a><a href="https://drive.google.com/file/d/1_P7pXOfPpdbNcCurlZp8YwNceNtF3z_e/view?usp=sharing" target="_blank">Supplement Whitepaper </a></div>
-            </div>
-            <img
-              src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='12'%20cy='12'%20r='10'%20stroke='%23fff'%20stroke-width='1.5'/%3e%3cpath%20d='M14.5%209.50002L9.5%2014.5M9.49998%209.5L14.5%2014.5'%20stroke='%23fff'%20stroke-width='1.5'%20stroke-linecap='round'/%3e%3c/svg%3e"
-              alt="close"
-              class="close"
-            />
-          </div>
-          <img
-            src="data:image/svg+xml,%3csvg%20width='44'%20height='37'%20viewBox='0%200%2044%2037'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20x='0.5'%20y='0.5'%20width='43'%20height='36'%20rx='3.5'%20stroke='white'%20stroke-dasharray='4%204'/%3e%3cpath%20d='M14.2498%2012.4585H20.2915C20.612%2012.4585%2020.9193%2012.5858%2021.1459%2012.8124C21.3725%2013.039%2021.4998%2013.3464%2021.4998%2013.6668C21.4998%2013.9873%2021.3725%2014.2946%2021.1459%2014.5213C20.9193%2014.7479%2020.612%2014.8752%2020.2915%2014.8752H14.2498C13.9294%2014.8752%2013.622%2014.7479%2013.3954%2014.5213C13.1688%2014.2946%2013.0415%2013.9873%2013.0415%2013.6668C13.0415%2013.3464%2013.1688%2013.039%2013.3954%2012.8124C13.622%2012.5858%2013.9294%2012.4585%2014.2498%2012.4585ZM22.7082%2022.1252H28.7498C29.0703%2022.1252%2029.3777%2022.2525%2029.6043%2022.4791C29.8309%2022.7057%2029.9582%2023.013%2029.9582%2023.3335C29.9582%2023.654%2029.8309%2023.9613%2029.6043%2024.1879C29.3777%2024.4145%2029.0703%2024.5418%2028.7498%2024.5418H22.7082C22.3877%2024.5418%2022.0804%2024.4145%2021.8538%2024.1879C21.6271%2023.9613%2021.4998%2023.654%2021.4998%2023.3335C21.4998%2023.013%2021.6271%2022.7057%2021.8538%2022.4791C22.0804%2022.2525%2022.3877%2022.1252%2022.7082%2022.1252ZM14.2498%2017.2918H28.7498C29.0703%2017.2918%2029.3777%2017.4191%2029.6043%2017.6457C29.8309%2017.8723%2029.9582%2018.1797%2029.9582%2018.5002C29.9582%2018.8206%2029.8309%2019.128%2029.6043%2019.3546C29.3777%2019.5812%2029.0703%2019.7085%2028.7498%2019.7085H14.2498C13.9294%2019.7085%2013.622%2019.5812%2013.3954%2019.3546C13.1688%2019.128%2013.0415%2018.8206%2013.0415%2018.5002C13.0415%2018.1797%2013.1688%2017.8723%2013.3954%2017.6457C13.622%2017.4191%2013.9294%2017.2918%2014.2498%2017.2918Z'%20fill='white'/%3e%3c/svg%3e"
-            alt="mobileMenu"
-            class="mobile-menu"
-          />
-        </header>
-        <div class="inner-container">
-          <section class="home" id="home">
-            <div class="main-title" data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="100">
-              A Paradigm Secure &amp; AI Enabled Privacy Layer 1
-            </div>
-            <div class="sub-title" data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="200">
-              Secure and private transactions through advanced cryptographic
-              techniques
-            </div>
             <div
-              class="d-flex justify-content-center align-items-center gap-3"
-              data-aos="fade-up"
-              data-aos-duration="600"
-              data-aos-delay="300"
-            >
-              <a
-                href="#" 
-                class="customBtn"
-                >Testnet</a
-              ><a
-                href="https://drive.google.com"
-                target="_blank"
-                class="customBtn"
-                >WhitePaper</a
-              >
-            </div>
-            <img
-              src="./static/media/main-home-2-BxzsthO_.gif"
-              alt="mainHome"
-              class="main-home-img"
-              
-            />
-          </section>
-          <section class="paradigm text-center" id="about">
-            <img
-              class="w-100 horizontal-line"
-              src="data:image/svg+xml,%3csvg%20width='1020'%20height='1'%20viewBox='0%200%201020%201'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='-4.37114e-08'%20y1='0.5'%20x2='1020'%20y2='0.499911'%20stroke='url(%23paint0_linear_175_487)'%20stroke-dasharray='6%206'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_175_487'%20x1='4.37114e-08'%20y1='1.5'%20x2='1020'%20y2='1.49991'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='white'%20stop-opacity='0'/%3e%3cstop%20offset='0.539523'%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
-              alt="horizontalLine"
-            />
-            <div class="main-title about_title">
-              <span data-aos="fade-up"
-              data-aos-duration="600"
-              data-aos-delay="100">
-              A New Paradigm
-              </span>
-             
-            </div>
-            <div
-              class="sub-title" 
-              data-aos="fade-up"
-              data-aos-duration="600"
-              data-aos-delay="200"
-            >
-              Paradigm is a Layer 1 blockchain designed to provide the
-              highest level of security and privacy. Utilizing advanced
-              cryptographic techniques, Paradigm addresses the challenges
-              brought by Paradigm computing and the growing need for privacy in
-              decentralized systems. Our goal is straightforward: develop a
-              secure, scalable, and privacy-focused blockchain that enables
-              individuals and businesses to conduct digital transactions with
-              complete assurance.
-            </div>
-            <div
-              class="sub-title"
-              data-aos="fade-up"
-              data-aos-duration="600"
-              data-aos-delay="300"
-            >
-              Paradigm incorporates technologies such as Paradigm-resistant
-              cryptography, zk-SNARKs, and Fully Homomorphic Encryption (FHE) to
-              provide unmatched security and privacy. Our Paradigm Secure Proof
-              of Stake (QsPOS) consensus mechanism combines effectiveness with
-              strong security.
-            </div>
-            <div
-              class="sub-title"
-              data-aos="fade-up"
-              data-aos-duration="600"
-              data-aos-delay="400"
-            >  
-              <div class="contractCopy" style="display: flex;align-items: center;justify-content: center;gap: 1rem;cursor: pointer;">
-                CA : 
-                <span class="value contractValue" data-set="00000000000000000000000000000000000000000DEAD">00000000000000000000000000000000000000000DEAD</span>
-                <img src="./static/media/copy.svg" alt="copy" class="copy_btn" style="width: 30px;height: auto;object-fit: contain;">
-              </div>
-            </div>
-            <img
-              class="w-100 horizontal-line"
-              src="data:image/svg+xml,%3csvg%20width='1020'%20height='1'%20viewBox='0%200%201020%201'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='-4.37114e-08'%20y1='0.5'%20x2='1020'%20y2='0.499911'%20stroke='url(%23paint0_linear_175_487)'%20stroke-dasharray='6%206'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_175_487'%20x1='4.37114e-08'%20y1='1.5'%20x2='1020'%20y2='1.49991'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='white'%20stop-opacity='0'/%3e%3cstop%20offset='0.539523'%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
-              alt="horizontalLine"
-            />
-          </section>
-          <section class="qtc-stack" id="tech">
-            <div class="main-title" data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="100">
-              QTC Tech Stack
-            </div>
-            <div class="box">
-              <img
-                src="./static/media/demo-loop-2-BchwXtUD.gif"
-                alt="loopBlock"
-                class="img-loop"
-                data-aos="fade-right"
-                data-aos-duration="600"
-                data-aos-delay="200"
-              />
-              <div class="box-title"    data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="200">
-                Paradigm-Resistant Cryptography
-              </div>
-              <div class="sub-title"    data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="200">
-                Paradigm uses lattice-based cryptographic algorithms like
-                the Shortest Vector Problem (SVP) and Learning With Errors (LWE)
-                to protect against Paradigm computing attacks. These algorithms
-                are too complex for classical and Paradigm computers to solve,
-                ensuring strong protection for our network’s transactions and
-                data.
-              </div>
-            </div>
-            <div class="box right">
-              <img
-                src="./static/media/demo-loop-2-BchwXtUD.gif"
-                alt="loopBlock"
-                class="img-loop"
-                data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="200"
-              />
-              <div class="box-title" data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300">
-                Privacy-Preserving <br />
-                Techniques
-              </div>
-              <div class="sub-title" data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300">
-                • zk-SNARKs: These cryptographic proofs validate transactions
-                without revealing underlying data, ensuring privacy and security
-                on the blockchain.
-              </div>
-              <div class="sub-title mt-4" data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300">
-                • Fully Homomorphic Encryption (FHE): FHE allows computations on
-                encrypted data without needing to decrypt it, keeping user data
-                confidential during processing.
-              </div>
-            </div>
-            <div class="box">
-              <img
-                src="./static/media/demo-loop-2-BchwXtUD.gif"
-                alt="loopBlock"
-                class="img-loop"
-                data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300"
-              />
-              <div class="box-title" data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="300">
-                Paradigm Secure Proof of Stake (QsPOS)
-              </div>
-              <div class="sub-title" data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="300">
-                Our QsPOS consensus mechanism boosts security and efficiency by
-                requiring validators to stake QTC tokens. It maintains network
-                integrity with a fair validator selection process, efficient
-                block proposal and validation, and penalties for malicious
-                behavior
-              </div>
-            </div>
-          </section>
-          <section class="Paradigm">
-            <div class="main-title"data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="100" >
-              The settlement layer of the future
-            </div>
-            <div class="d-grid">
-              <div
-                class="card-box"
-                data-aos="fade-right"
-                data-aos-duration="600"
-                data-aos-delay="200"
-              >
-                <div class="title">[1] Unmatched Security</div>
-                <div class="content">
-                  Our use of Paradigm-resistant cryptography ensures that 
-                  Paradigm remains secure against future Paradigm threats. By
-                  implementing lattice-based algorithms, we provide a level of
-                  security that is designed to withstand even the most advanced
-                  Paradigm attacks.
+                class="nav_container px-[1rem] md:px-[2rem]  flex items-center relative h-[100%] justify-between w-full max-w-[100%] xl:max-w-[2100px] ">
+
+                <div class="left flex relative z-10 justify-center items-center text-[white] text_nav text-[15px] md:text-[30px]" data-aos="fade-right"
+                data-aos-duration="800"
+                data-aos-delay="200">
+
+                    <div class="logo mr-[1rem] uppercase">
+                        <h2 class="leading-[1] text-[16px] xl:text-[30px] min-[1700px]:text-[43.13px]">Flight Of The <br> Peacefrog</h2>
+                    </div> 
+
+                
+
                 </div>
-              </div>
-              <div
-                class="card-box"
-                data-aos="fade-left"
-                data-aos-duration="600"
-                data-aos-delay="300"
-              >
-                <div class="title">[2] Advanced Privacy</div>
-                <div class="content">
-                  Paradigm prioritizes user privacy through the integration
-                  of zk-SNARKs and FHE. These technologies enable private
-                  transactions and computations, ensuring that sensitive
-                  information is never exposed.
+
+                <div class="center absolute left-0  top-0 h-full w-[100%] z-0 justify-center flex items-center "
+                 data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="300">
+
+                <ul class="flex items-center absolute opacity-0 xl:opacity-100 xl:relative gap-[1rem] link_none">
+
+                    <li class="list-none"><a href="#home"
+                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">home</a>
+                    </li>
+
+                    <li class="list-none"><a href="#about"
+                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">about</a>
+                    </li>
+
+                    <li class="list-none"><a href="#tokenomics"
+                            class="text-white uppercaseduration-200 ease-in text_nav text-[20px] tracking-[1px]">tokenomics</a>
+                    </li>
+
+                </ul>
+
                 </div>
-              </div>
-              <div
-                class="card-box"
-                data-aos="fade-right"
-                data-aos-duration="600"
-                data-aos-delay="400"
-              >
-                <div class="title">[3] Innovative Consensus Mechanism</div>
-                <div class="content">
-                  Our Paradigm Secure Proof of Stake (QsPOS) consensus mechanism
-                  combines the best aspects of Proof of Stake with enhanced
-                  security features, making our network both efficient and
-                  robust against attacks.
+
+                <div class="right relative z-10 md:w-auto flex justify-center h-full items-center gap-[.75rem] md:gap-[1rem]" data-aos="fade-left"
+                data-aos-duration="800"
+                data-aos-delay="200">
+
+                <div class="social flex items-center relative  gap-[.5rem]"> 
+
+                    <a href="https://x.com/peacefrogERC" target="_blank" class="media duration-300 relative w-[39px] h-[37px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-full bg-[#509624] flex justify-center items-center">
+                        <img src="./assets/images/twitter.svg" alt="telegram" class="w-[50%] h-auto object-contain">
+                    </a> 
+
+                    <a href="https://t.me/PeaceFrogEntry" target="_blank" class="media duration-300 relative w-[39px] h-[37px] md:w-[58.66px] md:h-[56.6px] border-[2px] border-black rounded-full bg-[#509624] flex justify-center items-center">
+                        <img src="./assets/images/telegram.svg" alt="telegram" class="w-[50%] h-auto object-contain">
+                    </a> 
+
                 </div>
-              </div>
-              <div
-                class="card-box"
-                data-aos="fade-left"
-                data-aos-duration="600"
-                data-aos-delay="500"
-              >
-                <div class="title">[4] Comprehensive Tokenomics</div>
-                <div class="content">
-                  Our tokenomics model is designed to ensure the sustainable
-                  growth of the Paradigm ecosystem. With a focus on
-                  rewarding validators, supporting development, and engaging the
-                  community, we aim to build a thriving and resilient network.
+
+                    <a href="https://app.uniswap.org/swap?outputCurrency=0x407b574d34d1b967d1a6c927c58b6b76b7f9202f" target="_blank"
+                        class="relative w-[90px] buy h-[40px] md:w-[145px] uppercase md:h-[63px] flex justify-center items-center btn_hover  rock_font hover:scale-110 duration-300 cursor-pointer ">
+                        <span class="h-full w-full absolute bg-[#509624] border-black border-[2px] lg:border-[4px] rotate-[6deg]"></span>
+                        <p class="relative z-10 text-[black]  text-[10px] xl:text-[16px] proza-libre_font font-bold">Buy <br> $FROG</p>
+                    </a>
+
+                
+
+                    <div class="menu-button relative">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                  
                 </div>
-              </div>
+
             </div>
+
             <div
-              class="card-box last"
-              data-aos="fade-right"
-                data-aos-duration="600"
-                data-aos-delay="600"
-            >
-              <div class="title">[5] Future-Proof Technology</div>
-              <div class="content">
-                Paradigm is designed with the future in mind. Our roadmap
-                includes the integration of AI-driven anomaly detection and
-                optimization, ensuring that our blockchain remains at the
-                forefront of technological innovation.
-              </div>
+                class="menu absolute duration-300 top-[100%] left-[0rem] w-[100%] h-[200px] flex justify-center border-t-[2px] border-black bg-[#20672C]">
+                <ul class="flex items-center  relative gap-[2rem] link_none flex-col justify-center">
+                
+                    <li class="list-none"><a href="#home"
+                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">home</a>
+                </li>
+
+                <li class="list-none"><a href="#about"
+                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">about</a>
+                </li>
+
+                <li class="list-none"><a href="#tokenomics"
+                        class="text-white uppercaseduration-200 ease-in text_nav text-[16px] tracking-[1px]">tokenomics</a>
+                </li>
+
+                            
+                </ul>
             </div>
-          </section>
-          <section
-            class="validator"
-            id="validators"
+
+        </nav>
+ 
+         <!-- hero section -->
+         <section id="home" class="hero w-full relative h-[800px] md:h-[800px] xl:h-[1100px] flex justify-center items-center z-[10]">
+            <!-- title -->
+            <h2 class="title  genty_font tracking-[3px] lg:tracking-[36px] text-white absolute top-[20%] xl:top-[15%] text-[13vw] md:text-[10vw] xl:text-[10vw] z-10" data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="200">PEACE FROG</h2>
+            <p class="text-white z-10 absolute top-[35%] lg:top-[45%] xl:top-[47%] medium_shadow text-center w-[90%] lg:w-[858px] text-[15px] lg:text-[24px]" data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="300">The origin species of “Pepe” as stated by Matt Furie was “PeaceFrog” as represented by his original artwork in 2004 “Flight of the PeaceFrog”. </p>
+            <!-- star -->
+            <img src="./assets/images/star.svg" alt="" class="absolute top-[20%] w-[90%] xl:w-[90%] max-w-[1500px] h-auto object-contain">
+            <!-- decor -->
+            <img src="./assets/images/hero_decor.svg" alt="" class="absolute top-[15%] xl:top-[12%] w-[50px] xl:w-[139.13px] left-[62%] h-auto object-contain z-[10]"> 
+
+              <!-- jejak left -->
+            <img src="./assets/images/jejak.png" alt="" class="absolute object-contain h-auto w-[50%] lg:w-[25vw] min-[1600px]:w-[465px] left-[5%] min-[1800px]:left-[10%] bottom-[10%] z-[1] mirror_image">
             
-          >
-            <div class="row align-items-center  ">
-              <div class="col-md-12 col-lg-7">
-                <div class="max-w-validator">
-                  <div class="main-title" data-aos="fade-right"
-                  data-aos-duration="600"
-                  data-aos-delay="100">Become a Validator</div>
-                  <div class="sub-title" data-aos="fade-right"
-                  data-aos-duration="600"
-                  data-aos-delay="200">
-                    Run a master node and earn rewards by participating in
-                    securing the network. Help us maintain decentralization and
-                    network integrity.
-                  </div>
-                  <div data-aos="fade-right"
-                  data-aos-duration="600"
+              <!-- jejak right -->
+            <img src="./assets/images/jejak.png" alt="" class="absolute object-contain h-auto w-[50%] lg:w-[25vw] min-[1600px]:w-[465px] right-[0%] min-[1800px]:right-[4vw] bottom-[35%] z-[1] "> 
+
+            <!-- hero image -->
+            <img src="./assets/images/loop.gif" alt="hero" class="absolute w-[400px] xl:w-[650px] min-[1800px]:w-[798.37px]  h-auto object-contain z-[1] bottom-[-11%] lg:bottom-[-13%] min-[1800px]:bottom-[-28%] rotate-[-20deg] float_animation">
+
+            <!--  bg -->
+            <img src="./assets/images/hero_bg.svg" alt="hero" class="absolute w-[400px] xl:w-[500px] min-[1880px]:w-[798.37px]  h-auto object-contain z-[0] bottom-[0]">
+ 
+            <div class="absolute bottom-0 w-full h-[50px] xl:h-auto flex justify-center items-center">
+                <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[0] h-full xl:h-auto  object-cover ">
+             </div>
+
+
+             <!-- contract -->
+              <div class="absolute top-[300px] md:top-[380px] xl:top-auto xl:bottom-0 xl:right-0 w-[95%]   sm:w-[500px] lg:w-[800px] xl:w-[40%]  h-[300px] flex flex-col items-center min-[1800px]:items-start z-10" data-aos="fade-left"
+              data-aos-duration="500"
+              data-aos-delay="300">
+
+                <div class="btns absolute bottom-[150px] z-10 w-full xl:w-[80%] min-[1500px]:w-full min-[2000px]:w-[700px] flex justify-end items-center gap-[.5rem] lg:gap-[1rem] rotate-[5deg]">
+                    <a href="https://www.dextools.io/app/ether/pair-explorer/0x2FB34e3Ac0979bD7B692caC637391ffef87c907C" target="_blank" class="relative duration-100 hover:scale-90 w-[90px] h-[40px] xl:w-[153.75px] xl:h-[69.73px] flex justify-center items-center">
+                        <img src="./assets/images/dex_bg_hero.svg" alt="" class="w-full h-full object-contain relative">
+                        <p class="absolute text-[12px] xl:text-[18px]">Dextools</p>
+                    </a>
+                    <a href="https://app.uniswap.org/swap?outputCurrency=0x407b574d34d1b967d1a6c927c58b6b76b7f9202f" target="_blank" class="relative duration-100 hover:scale-90 w-[90px] h-[40px] xl:w-[153.75px] xl:h-[69.73px] flex justify-center items-center">
+                        <img src="./assets/images/buy_bg_hero.svg" alt="" class="w-full h-full object-contain relative">
+                        <p class="absolute text-[12px] xl:text-[18px]">Buy $FROG</p>
+                    </a>
+                </div>
+
+                <!-- contract -->
+                 <div class="absolute w-[100%] min-[500px]:w-[400px] xl:w-[500px] min-[1800px]:w-[710px]  h-[60px] bottom-[100px] flex justify-center items-center ">
+                    <img src="./assets/images/bg_contract.svg" alt="" class="w-full h-auto object-contain">
+
+                    <p class="absolute text-[9px] xl:text-[13px] min-[500px]:text-[11px] min-[1800px]:text-[18px]">
+                        Contract: <br> 0x407b574D34d1B967d1A6c927c58b6B76B7F9202F
+                    </p>
+                 </div>
+              </div>
+
+         </section> 
+
+         <!-- rotate image -->
+         <div class="rotate w-full min-[2000px]:w-[1600px]  h-auto absolute left-[50%] translate-x-[-50%] top-[500px] lg:top-[13vw] min-[1800px]:top-[40px]   z-0  flex justify-center items-center">
+           <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
+            <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
+            <img src="./assets/images/rotate.png" alt="" class="w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
+           </div>
+         </div>
+
+         <!-- about -->
+          <section id="about" class="w-full h-auto relative pt-[100px] pb-[100px] lg:pt-[300px] text-white flex flex-col items-center text-center gap-[3rem] ">
+
+            <!-- text -->
+            <p class="w-[90%] md:w-[70%] xl:w-[858px] medium_shadow xl:text-[24px] z-10" data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="200">As the 2016 Presidential elections got underway, the far right - alt community were using Pepe to spread hate, this was widely covered in global press / news.</p>
+
+         
+                <!-- browser -->
+            <div class="w-[97%]  max-w-[1800px] relative h-auto  bg-[#B7B7B7] mx-auto rounded-[30px] lg:rounded-[50px] flex justify-center items-center flex-col px-[1rem] lg:px-[2rem]  gap-[1rem] max-[1023px]:py-[2rem] pb-[2rem] my-[2rem] delius_font z-10">
+                    
+                <!-- title browser -->
+                <div class="flex relative justify-between items-center w-full">
+                <p class="text-black text-[24px] font-bold">Browser</p>
+
+                <div class="flex justify-center items-center gap-[1rem]">
+
+                <span class="rounded-full h-[28px] w-[28px] bg-[#60BF89] border-[3px] border-[#181818]"></span>
+                <span class="rounded-full h-[28px] w-[28px] bg-[#FFC374] border-[3px] border-[#181818]"></span>
+                <span class="rounded-full h-[28px] w-[28px] bg-[#FF8080] border-[3px] border-[#181818]"></span>
+
+                </div>
+
+                </div>
+
+                <!-- content -->
+                <div  class="flex relative justify-between items-center w-full flex-col  h-uto bg-[#FFFFFF]     ">
+
+                <!-- top -->
+                <div class="flex justify-between items-center flex-wrap w-full bg-[#509624] h-[160px] md:h-[100px]   px-[1rem]">
+                    
+                    <!-- logo -->
+                    <div class="flex justify-center items-center">
+                        <p class="genty_font about_title text-left leading-[1] text-[25px] lg:text-[34px]">Flight Of The <br> Peacefrog</p>
+                    </div>
+
+                    <!-- searching desktop -->
+                    <div class="w-[70%] hidden xl:w-[740px] h-[52px] bg-[#FAF460] rounded-[20px] px-[.65rem] md:flex justify-between items-center ">
+
+                        <div class="text-black font-bold flex items-center gap-[.5rem] text-[10px] md:text-[12.5px] pl-[.5rem] text-wrap w-full">
+                            blog.threadless.com/artist-matt-furie-has-teamed-up-with-save-the-frogs-to-savepepe-artist-shop-spotlight/
+                        </div>
+
+                        
+                        <div class="relative cursor-pointer duration-150 hover:scale-105 ">
+                            <a href="https://blog.threadless.com/artist-matt-furie-has-teamed-up-with-save-the-frogs-to-savepepe-artist-shop-spotlight/" target="_blank" class="bg-[#F17878] rounded-[15px] w-[90px] h-[40px] border-[3px] border-black flex justify-center items-center">
+                                <img src="./assets/images/searching_text.svg" alt="" class="h-auto object-contain w-[90%]">
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- buy -->
+                    <a href="https://etherscan.io/token/0x407b574d34d1b967d1a6c927c58b6b76b7f9202f" target="_blank" class="relative w-auto h-auto">
+                        <img src="./assets/images/etherscan_dextools.png" alt="ether" class="w-[200px] h-auto object-contain hover:scale-110">
+                    </a>
+
+                    
+
+                </div>
+
+                <!-- content -->
+                <div  class="flex justify-center items-start flex-col lg:flex-row h w-full h-auto xl:h-[90%]  overflow-auto max-[1023px]:p-[.65rem] pt-[2rem]">
+                    
+                    <!-- left -->
+                    <div class="max-w-[100%] flex  items-center flex-col w-full lg:w-[25%] h-full  gap-[1rem] pt-[1rem]  lg:pr-[1rem]">
+                        
+                        <!-- image -->
+                        <div class="w-full h-auto py-[1rem] border-[10px] rounded-xl border-[#F17878] bg-[#FAF460] flex justify-center items-center  ">
+                            <img src="./assets/images/left_image1.png" alt="" class="object-contain h-auto w-[60%] md:w-[250px] lg:w-[90%] rounded-[30px]">
+                        </div>
+
+                        <!-- name -->
+                        <div class="w-full h-auto flex justify-center items-center flex-col gap-[.6rem] text-[13px] min-[1400px]:text-[14px] uppercase font-bold">
+                            <div class="w-full text-black  flex justify-between items-center ">
+                                <p class="text-[#828282]">Name :</p>
+                                <p >flight of the peacefrog</p>
+                            </div>
+                            <div class="w-full text-black  flex justify-between items-center ">
+                                <p class="text-[#828282]">code :</p>
+                                <p>$FROG</p>
+                            </div>
+                            <div class="w-full text-black  flex justify-between items-center  cursor-pointer copy_btns">
+                                <p class="text-[#828282]">contract :</p>
+                                <p class="copy_btn contract_address">0x4. . . 202F</p>
+                                <!-- <p>0x4. . . 202F</p> -->
+                            </div>
+                            <div class="w-full text-black  flex justify-between items-center ">
+                                <p class="text-[#828282]">looking for :</p>
+                                <p>1B marketcap</p>
+                            </div>
+                        </div>
+
+                        <!-- images -->
+                            <div class="flex flex-wrap justify-center gap-[.95rem] overflow-hidden h-auto  relative ">
+
+                            <div class="relative duration-100 news_image select-none w-[40.3%] h-auto cursor-pointer">
+                                <img src="./assets/images/left_image2.png" alt="" class="object-cover  h-auto xl:h-[1300px] max-h-[130px] w-[100%] relative rounded-[1rem] border-black border-[1px]">
+                            </div>
+                            <div class="relative duration-100 news_image select-none w-[40.3%] h-auto cursor-pointer">
+                                <img src="./assets/images/left_image3.png" alt="" class="object-cover  h-auto xl:h-[1300px] max-h-[130px] w-[100%] relative rounded-[1rem] border-black border-[1px]">
+                            </div>
+                            <div class="relative duration-100 news_image select-none w-[40.3%] h-auto cursor-pointer">
+                                <img src="./assets/images/left_image4.png" alt="" class="object-cover  h-auto xl:h-[1300px] max-h-[130px] w-[100%] relative rounded-[1rem] border-black border-[1px]">
+                            </div>
+                            <div class="relative duration-100 news_image select-none w-[40.3%] h-auto cursor-pointer">
+                                <img src="./assets/images/left_image5.png" alt="" class="object-cover  h-auto xl:h-[1300px] max-h-[130px] w-[100%] relative rounded-[1rem] border-black border-[1px]">
+                            </div>
+                                
+
+                            </div>
+
+                    </div>
+
+                    <!-- center -->
+                        <div  class="max-w-[100%] flex justify-start items-center flex-col w-full lg:w-[52%] h-full  pt-[2rem]  lg:px-[1rem] bg-[#509624] max-[1023px]:my-[2rem]">
+                    
+                        <!-- image -->
+                        <div class="w-full md:w-[500px] h-auto relative bg-white rounded-full overflow-hidden mb-[2rem]">
+                            <img src="./assets/images/image_center.png" alt="" class="object-cover h-[330px] w-auto relative ">
+                        </div>
+
+                        <!-- message -->
+                        <div class="  w-full h-auto flex justify-center items-center flex-col gap-[2rem] mb-[1rem] font-bold">
+                        
+                            <!-- 1 -->
+                            <div class="w-[98%] lg:w-[90%] h-auto xl:h-[55px] relative border-[2px] border-[#181818] rounded-[20px] bg-[#FAF460] flex justify-between items-center lg:pl-[.75rem]  max-[1023px]:pt-[.5rem]">
+
+                                <!-- by -->
+                                <div class="rounded-[7px] bg-[#BAFFC9] h-[23px] w-[72px] border-black border-[2px] max-[1024px]:ml-[1rem] px-[.2rem]">
+                                <p class="text-[#067EBA]  text-[12px]">MICHAEL</p>
+                                </div>
+                                <!-- mess -->
+                                <p class="w-full text-left  lg:w-[86%] max-[1023px]:px-[.5rem] lg:pr-[1.5rem] leading-[1] text-black max-[400px]:text-[3vw] text-[11.5px] lg:text-[15px] pl-[.5rem]" > 
+                                    <!-- First things first. Matt, what is Pepe’s origin story? -->
+                                    <span class="writingAnimated w-full" data-typed-strings="  First things first. Matt, what is Pepe’s origin story?"></span>
+                                </p>
+
+                                <button class="h-auto w-auto relative pr-[.35rem] duration-100 hover:scale-90">
+                                    <img src="./assets/images/send_btn1.png" alt="" class="h-[50px] w-auto object-contain">
+                                </button>
+
+                            </div>
+
+                            <!-- 2 -->
+                            <div class="w-[98%] h-auto relative border-[2px] border-[#181818] rounded-[20px] bg-[#BAFFC9] flex justify-between items-center lg:pl-[.75rem]  max-[1023px]:pt-[.5rem] py-[.65rem]">
+
+                                <!-- by -->
+                                <div class="rounded-[7px] bg-[#FAF460] h-[23px] w-[72px] border-black border-[2px] max-[1024px]:ml-[1rem] px-[.2rem]">
+                                <p class="text-[#509624]  text-[12px]">MATT</p>
+                                </div>
+                                
+                                <!-- mess -->
+                                <p class="w-full h-auto text-left  lg:w-[86%] max-[1023px]:px-[.5rem] lg:pr-[1.5rem] leading-[1] text-black max-[400px]:text-[3vw] text-[11.5px] lg:text-[15px] pl-[.5rem]" >  
+                                    <span class="writingAnimated w-full" data-typed-strings="  Pepe began as an artwork titled “Flight of the Peacefrog” that I made in 2004. It featured Pepe – an anthropomorphic frog in a colorful tracksuit – riding on the back of a bird. He came from my continued interest in drawing animal/human hybrids. People can relate to the frog because frogs are for everybody. They are a unique and beautiful cosmic wonder."></span>
+                                </p>
+
+                                <button class="h-auto w-auto relative pr-[.35rem] duration-100 hover:scale-90">
+                                    <img src="./assets/images/send_btn2.png" alt="" class="h-[50px] w-auto object-contain">
+                                </button>
+
+                            </div>
+
+                            <!-- 3 -->
+                            <div class="w-[98%] lg:w-[90%] h-auto py-[1rem] relative border-[2px] border-[#181818] rounded-[20px] bg-[#FAF460] flex justify-between items-center lg:pl-[.75rem]  max-[1023px]:pt-[.5rem]">
+
+                                <!-- by -->
+                                <div class="rounded-[7px] bg-[#BAFFC9] h-[23px] w-[72px] border-black border-[2px] max-[1024px]:ml-[1rem] px-[.2rem]">
+                                <p class="text-[#067EBA]  text-[12px]">MICHAEL</p>
+                                </div>
+                                <!-- mess -->
+                                <p class="w-full text-left  lg:w-[86%] max-[1023px]:px-[.5rem] lg:pr-[1.5rem] leading-[1] text-black max-[400px]:text-[3vw] text-[11.5px] lg:text-[15px] pl-[.5rem]" > 
+                                   
+                                    <span class="writingAnimated w-full" data-typed-strings=" Matt, you said in an interview with The Guardian that Pepe, along with your other characters, is an extension of yourself – did Pepe’s use in hate groups feel more personal than the use of a meme typically might?"></span>
+                                </p>
+
+                                <button class="h-auto w-auto relative pr-[.35rem] duration-100 hover:scale-90">
+                                    <img src="./assets/images/send_btn1.png" alt="" class="h-[50px] w-auto object-contain">
+                                </button>
+
+                            </div>
+
+                                <!-- 2 -->
+                                <div class="w-[98%] h-auto relative border-[2px] border-[#181818] rounded-[20px] bg-[#BAFFC9] flex justify-between items-center lg:pl-[.75rem]  max-[1023px]:pt-[.5rem] py-[.65rem]">
+
+                                    <!-- by -->
+                                    <div class="rounded-[7px] bg-[#FAF460] h-[23px] w-[72px] border-black border-[2px] max-[1024px]:ml-[1rem] px-[.2rem]">
+                                    <p class="text-[#509624]  text-[12px]">MATT</p>
+                                    </div>
+                                    
+                                    <!-- mess -->
+                                    <p class="w-full h-auto text-left  lg:w-[86%] max-[1023px]:px-[.5rem] lg:pr-[1.5rem] leading-[1] text-black max-[400px]:text-[3vw] text-[11.5px] lg:text-[15px] pl-[.5rem]" > 
+                                      
+                                        <span class="writingAnimated w-full" data-typed-strings="   It’s a great reminder that we have a lot of work to do. I, along with many others, was living in a reality that celebrates American diversity and creates peace and love in our day to day lives. Pepe is a symbolic reminder that we still have a long way to go to help others along the path."></span>
+                                    </p>
+            
+                                    <button class="h-auto w-auto relative pr-[.35rem] duration-100 hover:scale-90">
+                                        <img src="./assets/images/send_btn2.png" alt="" class="h-[50px] w-auto object-contain">
+                                    </button>
+            
+                                </div>
+                            
+                        </div>
+
+                        </div>
+
+                        <!-- right -->
+                        <div  class="max-w-[100%] flex items-center flex-col w-full lg:w-[22%]  h-full  gap-[1rem]  overflow-hidden lg:pl-[1rem]  "> 
+
+                            <div class="w-full h-[200px] flex justify-center items-center ">
+                                <img src="./assets/images/image_right1.png" alt="" class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="w-full h-[200px] flex justify-center items-center lg:mt-[2rem]">
+                                <img src="./assets/images/image_right2.png" alt="" class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="w-full h-auto flex justify-center items-center bg-[#EF4343] px-[1.5rem]">
+                               <p class="text-[10px] text-black">Matt: It’s just the latest thing. The internet has so many unintended consequences. I never imagined people would listen to albums on Youtube. It has not changed the way I work as an artist. Art, for me, is therapeutic and meditative. It’s a way to enjoy the moment and be in a happy place. As long as I can draw I’ll always have that happy place, no matter what nonsense is going on on the internet. It’s important to detach from all of this information and just enjoy drawing like I used to as a kid. That said, my art isn’t just flowers and rainbows. I’m working on a series at the moment about factory farming that features Miss Piggies being mutilated on industrial levels by terminators. A Hell on Earth.</p>
+                            </div>
+
+                            <div class="w-full h-[200px] flex justify-center items-center  ">
+                                <img src="./assets/images/image_right3.png" alt="" class="w-full h-full object-cover">
+                            </div>
+
+
+                        </div>
+
+                </div>
+
+                    <!-- pop up image -->
+                <div class="popUp_container w-full h-full  cursor-pointer absolute left-0 top-0 hidden justify-center items-center z-10">
+
+                    <div class=" w-[90%] md:w-[600px] h-auto md:h-[700px] relative bg-white border-[2px] border-black ">
+                        
+                        <div class="close_btn z-10 absolute right-[-20px] top-[-20px] md:right-[-40px] md:top-[-40px] h-[40px] lg:h-[60px] w-[40px] lg:w-[60px] rounded-full border-[2px] border-black bg-white cursor-pointer flex justify-center items-center">
+                            <img src="./assets/images/close.svg" alt="" class="w-[50%] h-auto object-contain ">
+                        </div>
+
+                        <img src="./assets/images/browser_center1.png" alt="img" class="w-full h-full object-cover relative image_popUp">
+                    </div>
+
+                </div>
+
+                </div>
+
+            
+
+            </div>
+ 
+        
+  
+              <!-- text -->
+            <p class="w-[90%] md:w-[70%] xl:w-[858px] medium_shadow xl:text-[24px] z-10 " data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="300">In 2017 Matt Furie clarified that the origin art work was in fact 'PeaceFrog' and he started to 'spread the love' with the use of the #SavePepe hashtag on Twitter / X.</p>
+
+
+            <!-- lines -->
+            <div class="absolute bottom-0 w-full h-[50px] z-10 xl:h-auto flex justify-center items-center">
+                <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[0] h-full xl:h-auto  object-cover ">
+             </div>
+
+             <!-- rotate -->
+             <div class="rotate w-full min-[2000px]:w-[1600px]  h-auto absolute left-[50%] translate-x-[-50%] xl:bottom-[-48vw] min-[1700px]:bottom-[-50vw] bottom-[-45vw] z-0  flex justify-center items-center">
+                <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
+                 <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
+                 <img src="./assets/images/rotate.png" alt="" class="w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
+                </div>
+              </div>
+     
+
+          </section>
+ 
+           <!-- tokenomics -->
+           <section id="tokenomics" class="w-full h-auto relative pt-[100px]  text-white flex flex-col items-center text-center gap-[3rem] py-[5rem]"> 
+
+         
+            <!-- image -->
+             <img src="./assets/images/token_image.png" alt="" class="z-10  relative h-auto object-contain w-[90%]" data-aos="zoom-in"
+             data-aos-duration="500"
+             data-aos-delay="300">
+   
+
+             <!-- token -->
+              <h2 class="text-[10vw] xl:text-[110px] bold_shadow genty_font" data-aos="fade-up"
+              data-aos-duration="500"
+              data-aos-delay="300">FROGnomics</h2>
+
+              <!-- contract -->
+               <div class="bg-[#509624] contract_shadow border-[3px] border-black relative w-[95%] xl:w-[1110px] h-auto max-[1023px]:py-[3rem] xl:h-[270.31px] flex justify-center items-center flex-col rounded-[30px] gap-[2rem] copy_btns">
+                  <h2 class="text-black uppercase text-[5vw] xl:text-[32px]" data-aos="fade-up"
+                  data-aos-duration="500"
+                  data-aos-delay="100">contract address</h2>
+                  <div class="flex justify-center items-center gap-[1rem] w-auto text-black" data-aos="fade-up"
+                  data-aos-duration="500"
                   data-aos-delay="300">
-                    <button class="black-btn hover_btn" >
-                      <span>Join Now</span>
+                    <p class="text-[10px] md:text-[14px] xl:text-[16px] contract_address">0x407b574D34d1B967d1A6c927c58b6B76B7F9202F</p>
+                    <img src="./assets/images/copy_btn.svg" alt="" class="w-[40] xl:w-[50px] h-auto object-contain cursor-pointer copy_btn">
+                  </div>
+                 <a href="https://app.uniswap.org/swap?outputCurrency=0x407b574d34d1b967d1a6c927c58b6b76b7f9202f" target="_blank" class="relative"  data-aos="fade-up"
+                 data-aos-duration="500"
+                 data-aos-delay="500">
+                    <img src="./assets/images/buy_uns.png" alt="" class="h-[60px] w-auto object-contain duration-100 hover:scale-110 cursor-pointer"  >
+                 </a>
+
+
+                  <!-- bg -->
+                   <div class="h-[200px] xl:h-[300px] w-[25vw] xl:w-[300px] object-contain absolute left-0 xl:left-[-10%] top-[-20%] xl:top-[-30%] flex justify-center items-center" data-aos="zoom-in"
+                   data-aos-duration="500"
+                   data-aos-delay="1000">
+                   <img src="./assets/images/loop.gif" alt="" class="h-auto w-full mirror_image" ></div>
+        
+                  <img src="./assets/images/loop.gif" alt="" class="h-auto w-[25vw] xl:w-[300px] object-contain absolute right-0 xl:right-[-10%] top-[-20%] xl:top-[-30%]" data-aos="zoom-in"
+                  data-aos-duration="500"
+                  data-aos-delay="1000">
+
+               </div>
+
+               <!-- btns -->
+                <div class="flex justify-center flex-wrap items-center w-full h-auto gap-[2rem] flex-col md:flex-row">
+                  <div class="relative w-full lg:w-auto flex justify-center" data-aos="zoom-in"
+                  data-aos-duration="500"
+                  data-aos-delay="200">
+                    <button class="relative w-[90%] xl:w-auto flex justify-center cursor-pointer duration-100 hover:scale-110 px-[2rem] py-[.75rem] border-black border-[4px] rounded-[20px] bg-[#FF8F3E] uppercase text-black text-[16px] xl:text-[20px] font-bold">
+                        Symbol : $frog
                     </button>
                   </div>
+                   <div class="relative w-full lg:w-auto flex justify-center" data-aos="zoom-in"
+                   data-aos-duration="500"
+                   data-aos-delay="300">
+                    <button class="relative w-[90%] xl:w-auto flex justify-center cursor-pointer duration-100 hover:scale-110 px-[2rem] py-[.75rem] border-black border-[4px] rounded-[20px] bg-[#FAF460] uppercase text-black text-[16px] xl:text-[20px] font-bold">
+                        sUPPLY: 420,690,000,000,000
+                    </button>
+                   </div>
+                   <div class="relative w-full lg:w-auto flex justify-center" data-aos="zoom-in"
+                   data-aos-duration="500"
+                   data-aos-delay="400">
+                    <button class="relative w-[90%] xl:w-auto flex justify-center cursor-pointer duration-100 hover:scale-110 px-[2rem] py-[.75rem] border-black border-[4px] rounded-[20px] bg-[#68D0FF] uppercase text-black text-[16px] xl:text-[20px] font-bold">
+                        lP : BURNT 
+                    </button>
+                   </div>
+                   <div class="relative w-full lg:w-auto flex justify-center" data-aos="zoom-in"
+                   data-aos-duration="500"
+                   data-aos-delay="500">
+                    <button class="relative w-[90%] xl:w-auto flex justify-center cursor-pointer duration-100 hover:scale-110 px-[2rem] py-[.75rem] border-black border-[4px] rounded-[20px] bg-[#FF5CA4] uppercase text-black text-[16px] xl:text-[20px] font-bold">
+                        TAX 0% BUY 0% SELL
+                    </button>
+                   </div>
                 </div>
-              </div>
-              <div class="col-md-12 col-lg-5">
-                <div class="text-center text-lg-end" data-aos="fade-left"
-                data-aos-duration="600"
-                data-aos-delay="400">
-                  <img
-                    src="./static/media/atoms-DBGePYBV.gif"
-                    alt="atoms"
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
+
+            <!-- lines -->
+            <div class="absolute bottom-0 w-full h-[50px] z-10 xl:h-auto flex justify-center items-center">
+                <img src="./assets/images/lines_section.svg" alt="hero" class="relative   w-full z-[0] h-full xl:h-auto  object-cover ">
+             </div>
+ 
+
           </section>
-          <section class="road-map" id="roadMap">
-            <div class="main-title" data-aos="fade-up"
-            data-aos-duration="600"
+
+          <!-- footer -->
+           <footer class="w-full relative flex flex-col items-center justify-center gap-[2rem] my-[100px]">
+            
+            <img src="./assets/images/footer_image.png" alt="" class="h-[100px] w-auto object-contain" data-aos="fade-up"
+            data-aos-duration="500"
             data-aos-delay="100">
-              Our Roadmap
+
+            <p class="text-[#D7D2D2] text-[20px] text-center w-[90%] md:w-[625px]" data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="300">Recently, a lot of ethereum memecoins have been playing in the crypto backyard. These memes need a ruler; they need a FROG  is here for that. </p>
+
+            <div class="w-full flex justify-center items-center gap-[2rem]" data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="100">
+                <a href="https://x.com/peacefrogERC" target="_blank" class="relative duration-100 hover:scale-110">
+                    <img src="./assets/images/twitter_footer.png" alt="" class="w-[60px] min-[1500px]:h-[80px] h-auto object-contain">
+                </a>
+                <a href="https://t.me/PeaceFrogEntry" target="_blank" class="relative duration-100 hover:scale-110">
+                    <img src="./assets/images/telegram_footer.png" alt="" class="w-[60px] min-[1500px]:h-[80px] h-auto object-contain">
+                </a>
+                <a href="
+                https://etherscan.io/token/0x407b574d34d1b967d1a6c927c58b6b76b7f9202f" target="_blank" class="relative duration-100 hover:scale-110">
+                    <img src="./assets/images/etherium.png" alt="" class="w-[60px] min-[1500px]:h-[80px] h-auto object-contain">
+                </a>
             </div>
-            <div class="sub-title" data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="200">
-              We are a driven team, committed to adaptability and
-              experimentation. This is the ethos of the development and
-              achievements of Paradigm as we progress through the
-              milestones outlined in our roadmap
-            </div>
-            <div
-              class="border-box border-top-0 border-start-0 top-card pt-md-0"
-            >
-              <div class="triangle-outer top d-block d-md-none">
-                <img
-                  src="./static/media/diamond-2-DxFW4dIj.gif"
-                  alt="triangle"
-                  class="triangle-img"
-                />
-              </div>
-              <div class="text-center d-block d-md-none my-5">
-                <img
-                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
-                  alt="verticalLine"
-                />
-              </div>
-              <div
-              data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300"
-              >
-                <div class="title">Research and Development</div>
-                <div class="content">
-                  <div>
-                    - Research Paradigm-resistant cryptographic algorithms.
-                  </div>
-                  <div>
-                    - Design the Paradigm Secure Proof of Stake (QsPOS) consensus
-                    mechanism.
-                  </div>
-                  <div>
-                    - Develop the initial protocol architecture with zk-SNARKs.
-                  </div>
-                  <div>
-                    - Implement smart contracts for the privacy stablecoin
-                    (USDQ).
-                  </div>
-                  <div>- Develop and deploy the bridge for wQTC.</div>
-                  <div>
-                    - Conduct internal security audits and peer reviews.
-                  </div>
+
+
+            <img src="./assets/images/loop.gif" alt="" class=" w-[30vw] xl:w-[300px] absolute h-auto object-contain   z-10 rotate-[-40deg] left-0 top-[-20%] xl:top-0" data-aos="zoom-in"
+            data-aos-duration="500"
+            data-aos-delay="600">
+
+           </footer>
+          
+           <!-- rotate image -->
+         <div class="bottom-0 hidden w-full h-full absolute overflow-hidden">
+            <div class="rotate w-full h-auto absolute left-0  bottom-[-30vw] xl:bottom-[-50vw] min-[2500px]:bottom-[-40vw] z-0   flex justify-center items-center">
+                <div class="reltive max-w-[2000px]  w-full h-auto flex justify-center items-center">
+                 <img src="./assets/images/rotate.png" alt="" class="w-full h-auto relative object-contain opacity-[0.01]">
+                 <img src="./assets/images/rotate.png" alt="" class="w-[1000px] xl:w-full max-w-[2000px] h-auto absolute object-contain rotate_img">
                 </div>
               </div>
-              <div class="triangle-outer top top d-none d-md-block">
-                <img
-                  src="./static/media/diamond-2-DxFW4dIj.gif"
-                  alt="triangle"
-                  class="triangle-img"
-                />
-              </div>
-            </div>
-            <div class="border-box border-top-0 border-end-0">
-              <div class="text-center d-block d-md-none my-5">
-                <img
-                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
-                  alt="verticalLine"
-                />
-              </div>
-              <div
-              data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="300"
-              >
-                <div class="title">Testnet Launch</div>
-                <div class="content">
-                  <div>
-                    - Launch the testnet with a limited number of validators.
-                  </div>
-                  <div>
-                    - Test the QsPOS consensus mechanism and privacy-preserving
-                    transactions.
-                  </div>
-                  <div>
-                    - Add the initial liquidity pool on Ethereum for wQTC.
-                  </div>
-                  <div>- Refine the bridge for wQTC to QTC mainnet tokens.</div>
-                  <div>- Engage the developer community to resolve bugs.</div>
-                </div>
-              </div>
-            </div>
-            <div class="border-box border-top-0 border-start-0">
-              <div class="text-center d-block d-md-none my-5">
-                <img
-                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
-                  alt="verticalLine"
-                />
-              </div>
-              <div
-              data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300"
-              >
-                <div class="title">Mainnet Launch</div>
-                <div class="content">
-                  <div>- Transition from testnet to mainnet.</div>
-                  <div>
-                    - Enable staking and delegated staking functionalities.
-                  </div>
-                  <div>- Launch the privacy stablecoin (USDQ).</div>
-                  <div>- Conduct third-party security audits.</div>
-                </div>
-              </div>
-            </div>
-            <div class="border-box border-top-0 border-end-0">
-              <div class="text-center d-block d-md-none my-5">
-                <img
-                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
-                  alt="verticalLine"
-                />
-              </div>
-              <div
-              data-aos="fade-left"
-              data-aos-duration="600"
-              data-aos-delay="300"
-              >
-                <div class="title">Ecosystem Expansion</div>
-                <div class="content">
-                  <div>
-                    - Develop and deploy decentralized applications (Dapps).
-                  </div>
-                  <div>- Introduce sharding techniques for scalability.</div>
-                  <div>
-                    - Launch Layer 2 solutions to reduce on-chain congestion.
-                  </div>
-                  <div>
-                    - Expand the validator network and increase
-                    decentralization.
-                  </div>
-                  <div>- Implement additional privacy-preserving features.</div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="border-box border-top-0 border-start-0 border-bottom-0 pb-md-0"
-            >
-              <div class="text-center d-block d-md-none my-5">
-                <img
-                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
-                  alt="verticalLine"
-                />
-              </div>
-              <div
-              data-aos="fade-right"
-              data-aos-duration="600"
-              data-aos-delay="300"
-              >
-                <div class="title">Long-Term Growth</div>
-                <div class="content">
-                  <div>
-                    - Regularly update the protocol with advancements in
-                    cryptography and blockchain.
-                  </div>
-                  <div>
-                    - Enhance governance for more inclusive decision-making.
-                  </div>
-                  <div>
-                    - Expand partnerships with other projects and institutions.
-                  </div>
-                  <div>
-                    - Engage the community through educational initiatives and
-                    hackathons.
-                  </div>
-                  <div>
-                    - Monitor regulatory compliance and adapt to evolving
-                    standards.
-                  </div>
-                </div>
-              </div>
-              <div class="text-center d-block d-md-none my-5">
-                <img
-                  src="data:image/svg+xml,%3csvg%20width='1'%20height='152'%20viewBox='0%200%201%20152'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cline%20x1='0.5'%20y1='2.18557e-08'%20x2='0.499993'%20y2='152'%20stroke='white'%20stroke-dasharray='6%206'/%3e%3c/svg%3e"
-                  alt="verticalLine"
-                />
-              </div>
-              <div class="triangle-outer">
-                <img
-                  src="./static/media/diamond-2-DxFW4dIj.gif"
-                  alt="triangle"
-                  class="triangle-img"
-                />
-              </div>
-            </div>
-          </section>
-        </div>
-        <footer >
-          <div  data-aos="fade-up"
-          data-aos-duration="600"
-          data-aos-delay="300">
-            <img
-              src="./static/media/logo-wide-7Gi-2v26.svg"
-              alt="logo"
-              class="logo cursor-pointer"
-            />
-            <div class="d-flex justify-content-center align-items-center gpa-4">
-              <a target="_blank" href="https://telegram.org/"
-                ><img
-                  class="cursor-pointer"
-                  src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_175_370)'%3e%3cpath%20d='M30%2015C30%2018.9782%2028.4196%2022.7936%2025.6066%2025.6066C22.7936%2028.4196%2018.9782%2030%2015%2030C11.0218%2030%207.20644%2028.4196%204.3934%2025.6066C1.58035%2022.7936%200%2018.9782%200%2015C0%2011.0218%201.58035%207.20644%204.3934%204.3934C7.20644%201.58035%2011.0218%200%2015%200C18.9782%200%2022.7936%201.58035%2025.6066%204.3934C28.4196%207.20644%2030%2011.0218%2030%2015ZM15.5381%2011.0738C14.0781%2011.6813%2011.1619%2012.9375%206.78938%2014.8425C6.08063%2015.1237%205.70875%2015.4%205.67375%2015.6712C5.6175%2016.1269%206.18938%2016.3069%206.9675%2016.5525L7.29563%2016.6556C8.06063%2016.905%209.09188%2017.1956%209.62625%2017.2069C10.1137%2017.2194%2010.6562%2017.0194%2011.2537%2016.6069C15.34%2013.8494%2017.4488%2012.4556%2017.58%2012.4256C17.6737%2012.4031%2017.805%2012.3769%2017.8913%2012.4556C17.9775%2012.5344%2017.97%2012.6806%2017.9606%2012.72C17.9044%2012.9619%2015.66%2015.0469%2014.4994%2016.1269C14.1375%2016.4644%2013.8806%2016.7025%2013.8281%2016.7569C13.7126%2016.8751%2013.595%2016.9913%2013.4756%2017.1056C12.7631%2017.7919%2012.2306%2018.3056%2013.5037%2019.1456C14.1169%2019.5506%2014.6081%2019.8825%2015.0975%2020.2162C15.63%2020.58%2016.1625%2020.9419%2016.8525%2021.3956C17.0275%2021.5106%2017.1963%2021.6275%2017.3588%2021.7463C17.9794%2022.1887%2018.54%2022.5863%2019.2281%2022.5225C19.6294%2022.485%2020.0438%2022.11%2020.2537%2020.985C20.7506%2018.3281%2021.7275%2012.5737%2021.9525%2010.2019C21.9666%2010.0047%2021.9585%209.80658%2021.9281%209.61125C21.9099%209.45376%2021.8337%209.30871%2021.7144%209.20438C21.5435%209.08707%2021.3403%209.0261%2021.1331%209.03C20.5706%209.03938%2019.7025%209.34125%2015.5381%2011.0738Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_175_370'%3e%3crect%20width='30'%20height='30'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
-                  alt="telegram"
-                  href="" /></a
-              ><a target="_blank" href="https://x.com"
-                ><img
-                  class="cursor-pointer"
-                  src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M26.9824%2026.7188L17.6106%2013.0589L17.6266%2013.0717L26.0767%203.28125H23.2529L16.3693%2011.25L10.9028%203.28125H3.49708L12.2465%2016.0345L12.2455%2016.0334L3.01758%2026.7188H5.84136L13.4943%2017.853L19.5767%2026.7188H26.9824ZM9.78398%205.41192L22.9332%2024.5881H20.6955L7.53565%205.41192H9.78398Z'%20fill='white'/%3e%3c/svg%3e"
-                  alt="xTwitter" /></a
-              ><a target="_blank" href="https://github.com"
-                ><img
-                  class="cursor-pointer"
-                  src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M15%202.5C13.3585%202.5%2011.733%202.82332%2010.2165%203.45151C8.69989%204.07969%207.3219%205.00043%206.16117%206.16117C3.81696%208.50537%202.5%2011.6848%202.5%2015C2.5%2020.525%206.0875%2025.2125%2011.05%2026.875C11.675%2026.975%2011.875%2026.5875%2011.875%2026.25V24.1375C8.4125%2024.8875%207.675%2022.4625%207.675%2022.4625C7.1%2021.0125%206.2875%2020.625%206.2875%2020.625C5.15%2019.85%206.375%2019.875%206.375%2019.875C7.625%2019.9625%208.2875%2021.1625%208.2875%2021.1625C9.375%2023.0625%2011.2125%2022.5%2011.925%2022.2C12.0375%2021.3875%2012.3625%2020.8375%2012.7125%2020.525C9.9375%2020.2125%207.025%2019.1375%207.025%2014.375C7.025%2012.9875%207.5%2011.875%208.3125%2010.9875C8.1875%2010.675%207.75%209.375%208.4375%207.6875C8.4375%207.6875%209.4875%207.35%2011.875%208.9625C12.8625%208.6875%2013.9375%208.55%2015%208.55C16.0625%208.55%2017.1375%208.6875%2018.125%208.9625C20.5125%207.35%2021.5625%207.6875%2021.5625%207.6875C22.25%209.375%2021.8125%2010.675%2021.6875%2010.9875C22.5%2011.875%2022.975%2012.9875%2022.975%2014.375C22.975%2019.15%2020.05%2020.2%2017.2625%2020.5125C17.7125%2020.9%2018.125%2021.6625%2018.125%2022.825V26.25C18.125%2026.5875%2018.325%2026.9875%2018.9625%2026.875C23.925%2025.2%2027.5%2020.525%2027.5%2015C27.5%2013.3585%2027.1767%2011.733%2026.5485%2010.2165C25.9203%208.69989%2024.9996%207.3219%2023.8388%206.16117C22.6781%205.00043%2021.3001%204.07969%2019.7835%203.45151C18.267%202.82332%2016.6415%202.5%2015%202.5Z'%20fill='white'/%3e%3c/svg%3e"
-                  alt="github" /></a
-              ><img
-                class="cursor-pointer"
-                src="data:image/svg+xml,%3csvg%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M12.354%202.75852C12.9486%202.68845%2013.5477%202.84551%2014.0314%203.19828C14.5151%203.55104%2014.8477%204.07348%2014.9627%204.66102L14.994%204.86977L15.0002%204.99977V13.7498C15.0003%2014.0559%2015.1127%2014.3514%2015.3161%2014.5802C15.5196%2014.809%2015.7999%2014.9552%2016.104%2014.991L16.2502%2014.9998H24.7502C25.4133%2014.9998%2026.0492%2015.2632%2026.518%2015.732C26.9868%2016.2008%2027.2502%2016.8367%2027.2502%2017.4998C27.2502%2017.5949%2027.2393%2017.6896%2027.2177%2017.7823C26.7175%2019.9406%2025.6526%2021.9272%2024.1321%2023.5386C22.6116%2025.15%2020.6901%2026.3283%2018.5644%2026.9529C16.4387%2027.5775%2014.1852%2027.6259%2012.0347%2027.0931C9.88418%2026.5604%207.91389%2025.4656%206.32561%2023.921C4.73733%2022.3763%203.58813%2020.4373%202.9957%2018.3024C2.40327%2016.1675%202.3889%2013.9136%202.95405%2011.7713C3.51921%209.62908%204.64359%207.67553%206.21205%206.11075C7.7805%204.54596%209.73667%203.42616%2011.8802%202.86602L12.2177%202.78227L12.354%202.75852Z'%20fill='white'/%3e%3cpath%20d='M17.5%204.37509V11.2501C17.5%2011.5816%2017.6317%2011.8996%2017.8661%2012.134C18.1005%2012.3684%2018.4185%2012.5001%2018.75%2012.5001H25.625C25.8248%2012.5%2026.0217%2012.4521%2026.1991%2012.3603C26.3766%2012.2684%2026.5294%2012.1354%2026.6449%2011.9724C26.7603%2011.8093%2026.835%2011.6209%2026.8626%2011.423C26.8903%2011.2252%2026.8701%2011.0236%2026.8038%2010.8351C26.1829%209.07176%2025.1745%207.47013%2023.8527%206.14814C22.5309%204.82614%2020.9295%203.81745%2019.1663%203.19634C18.9777%203.12976%2018.776%203.10938%2018.5779%203.1369C18.3799%203.16443%2018.1913%203.23906%2018.0281%203.35453C17.8649%203.47001%2017.7317%203.62295%2017.6398%203.80053C17.5479%203.97811%2017.5%204.17515%2017.5%204.37509Z'%20fill='white'/%3e%3c/svg%3e"
-                alt="pieChart"
-              />
-            </div>
-          </div>
-        </footer>
-      </div>
+         </div>
+
     </div>
 
-      <!-- aos js library animation -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="./static/js/index.js"></script>
-  </body>
+    
+    <!-- typed js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
+    <!-- aos js scroll animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+
+        // aos 
+        AOS.init({ 
+           once: true
+        });   
+
+         // typed animation
+         let elements = document.querySelectorAll('.writingAnimated');
+
+        elements.forEach(element => {
+            let typed = new Typed(element, {
+                strings: [element.dataset.typedStrings],
+                typeSpeed: 50,
+                smartBackspace: false,
+                loop: true
+            });
+        });
+
+        const news_images = document.querySelectorAll('.news_image');
+        const popUp_container = document.querySelector('.popUp_container');
+        const image_popUp_container = document.querySelector('.popUp_container .image_popUp');
+
+        news_images.forEach(news_image => {
+   news_image.addEventListener('click', () => {
+    const img = news_image.querySelector('img').src;
+    console.log(img);
+
+    image_popUp_container.src = img
+
+    popUp_container.classList.add('flex')
+    popUp_container.classList.remove('hidden')
+   })
+})
+
+popUp_container.addEventListener('click', () =>{
+    popUp_container.classList.remove('flex')
+    popUp_container.classList.add('hidden')
+})
+
+
+        // menu navbar
+        const menu = document.querySelector('.menu');
+        const menuBtn = document.querySelector('.menu-button');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active')
+            menu.classList.toggle('active')
+        });
+ 
+        // address
+        const btnsCopy = document.querySelectorAll('.copy_btns');  
+        const btn = document.querySelector('.copy_btn');  
+        const text = document.querySelector('.contract_address');  
+
+        
+        const contractText = text.innerText;
+        let timeout;
+
+        btnsCopy.forEach(copyBtn => {
+            const btn = copyBtn.querySelector('.copy_btn');  
+            const text = copyBtn.querySelector('.contract_address');  
+
+            
+            const contractText = text.innerText;
+            let timeout;
+
+            btn.addEventListener('click', function () { 
+                navigator.clipboard.writeText('0x407b574D34d1B967d1A6c927c58b6B76B7F9202F').then(function() { 
+                    text.innerText = 'Copied';
+            
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function () {
+                        text.innerText = contractText;
+                    },1000);
+                }).catch(function(err) {
+                    console.error('not copied in keyboard ', err);
+                });
+            });
+        })
+        
+        
+       
+
+
+
+
+    </script>
+</body>
+
 </html>
