@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "milky";
+  src: url("../fonts/yebu2.woff2") format("truetype");
+}
+
+body {
+  font-family: "Plus Jakarta Sans", serif;
+  background-color: #eeeeee;
+} 
+
+.flex_center{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.text_gradient {
+  background: linear-gradient(to right, #38bdf8, #2563eb);  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.buttonGradientBorder {  
+    overflow: hidden; 
+    position: relative;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+
+.buttonGradientBorder::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #38bdf8, #2563eb);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.buttonGradientBorder::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background-color: white;
+  z-index: -1;
+  border-radius: 20px;
+}
+ 
+.card{
+  background: linear-gradient(239.74deg, rgba(217, 217, 217, 0) 0%, rgba(255, 255, 255, 0.18) 45.3%, rgba(255, 255, 255, 0.1) 96.84%);
+}
+
+@media screen and (max-width: 768px) {
+  .menuContainer {
+    display: none;
+  }
+  .menuContainer.active {
+    display: block;
+  } 
+}
+ 
