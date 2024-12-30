@@ -8,6 +8,22 @@ html {
   scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0f2f74;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
 @font-face {
   font-family: "milky";
   src: url("../fonts/yebu2.woff2") format("truetype");
