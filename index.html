@@ -26,12 +26,14 @@
     <div
       class="w-full min-h-[100vh] h-auto max-w-[100%] relative overflow-x-clip flex items-center flex-col gap-24 md:gap-12 ">
 
-      <nav class="fixed top-0 w-full z-20 start-0 bg-[#ffffff70] backdrop-blur-md shadow-xl">
+      <nav class="fixed top-0 w-full z-20 start-0 bg-[#ffffff70] backdrop-blur-md shadow-xl ">
 
         <div
-          class="max-w-[2000px] flex flex-wrap items-center justify-between mx-auto p-4 lg:px-10"
+          class="max-w-[2000px] flex flex-wrap items-center justify-between mx-auto p-4 lg:px-10 "
         >
-          <a href="#beranda" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="#beranda" class="flex items-center space-x-3 rtl:space-x-reverse" data-aos="fade-right"
+          data-aos-duration="800"
+          data-aos-delay="200">
             <img 
               src="./static/images/AURION_NEXUS_logo_small_1-removebg-preview.png"
               class="h-12 lg:h-16" 
@@ -45,12 +47,14 @@
           </a>
 
           <div
-            class="items-center lg:absolute z-0 lg:translate-x-[-50%] lg:left-[50%]  menuContainer justify-center w-full md:flex md:w-auto   "
+            class="items-center lg:absolute z-0 lg:translate-x-[-50%] lg:left-[50%]  menuContainer justify-center w-full md:flex md:w-auto "
             id="navbar-sticky"
           >
 
             <ul
-              class="flex items-center flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 max-md:gap-6"
+              class="flex items-center flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 max-md:gap-6" data-aos="fade-down"
+              data-aos-duration="800"
+              data-aos-delay="200"
             >
               <li class="max-md:w-full max-md:text-center min-[1500px]:text-[18px]">
                 <a
@@ -95,7 +99,9 @@
 
           </div>
 
-          <div class="menu absolute top-[25px] right-7 md:hidden">
+          <div class="menu absolute top-[25px] right-7 md:hidden" data-aos="fade-left"
+          data-aos-duration="800"
+          data-aos-delay="100">
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
@@ -107,7 +113,9 @@
             </button>
           </div>
 
-          <div class="relative max-lg:hidden">
+          <div class="relative max-lg:hidden" data-aos="fade-left"
+          data-aos-duration="800"
+          data-aos-delay="200">
 
             <button  class="buttonGradientBorder duration-100 hover:scale-105   font-medium  text-sm px-5 py-2.5 text-center me-2 mb-2">
               <span class="text_gradient font-bold"> 
@@ -125,9 +133,9 @@
 
           <!-- content -->
           <div class="container flex_center flex-col w-full px-4 lg:px-20 gap-6 text-center max-w-[2000px] relative z-10">
-            <h1 class="text-black leading-[1.4] font-black text-center text-[9vw] md:text-[50px]">Rayakan Masa Depan Kripto Indonesia – <br/> <span class="text_gradient">  CryptoRaya </span>🚀</h1>
+            <h1 class="text-black leading-[1.4] font-black text-center text-[9vw] md:text-[50px] topAnimation" data-delay="1000">Rayakan Masa Depan Kripto Indonesia – <br/> <span class="text_gradient">  CryptoRaya </span>🚀</h1>
 
-            <p class="text-[#1f1f1f] font-semibold text-[16px] md:text-[20px] w-[600px] max-w-[100%]">
+            <p class="text-[#1f1f1f] font-semibold text-[16px] md:text-[20px] w-[600px] max-w-[100%] topAnimation">
               Dibangun untuk masyarakat, terinspirasi oleh kemajuan. Jadilah bagian dari langkah berani Indonesia menuju revolusi kripto.
             </p>
 
@@ -527,18 +535,23 @@
 
         <!-- privacy and use terms -->
         <div class="flex_center gap-4">
-          <a href="" class="text-center text-gray-700 font-medium duration-150 hover:text-black">
+          <a href="" class="text-right text-gray-700 font-medium duration-150 hover:text-black min-w-[40%] md:min-w-[300px]">
             Kebijakan Privasi
           </a>
           <span class="h-[30px] w-[1px] bg-gray-700"></span>
-          <a href="" class="text-center text-gray-700 font-medium duration-150 hover:text-black">
+          <a href="" class="text-left text-gray-700 font-medium duration-150 hover:text-black min-w-[40%] md:min-w-[300px]">
             Persyaratan Penggunaan
           </a>
         </div>
 
         <p class="text-center text-gray-700 font-medium text-[14px] px-4">
           Dikembangkan dan disediakan oleh Aurion Nexus, mendorong inovasi bagi komunitas kripto Indonesia.
+
+          <br>
+
+          <span class="font-semibold text-[16px]">support@cryptoreya.com</span>
         </p>
+         
      </footer>
 
 

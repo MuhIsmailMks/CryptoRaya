@@ -45,3 +45,19 @@ document.querySelectorAll('.scroll-link').forEach(link => {
         menuIcon.src = './static/images/menuBtn.svg';
     });
 });
+
+
+// animation
+// ScrollReveal().reveal('.topAnimation', {
+//     origin: 'bottom',   
+//     distance: '70px',   
+//     duration: 1000,    
+//     easing: 'ease-in-out',  
+//     reset: false     
+//   });
+
+  
+//   document.querySelectorAll('.topAnimation').forEach((el) => {
+//     const delay = el.getAttribute('data-delay') || 0;
+//     sr.reveal(el, { delay: parseInt(delay) });
+//   });
