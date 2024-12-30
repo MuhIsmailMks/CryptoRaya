@@ -19,7 +19,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #0f2f74;
+  background: linear-gradient(to right, #38bdf8, #2563eb); 
   border-radius: 5px;
   border: 2px solid white;
 }
