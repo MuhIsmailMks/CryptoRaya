@@ -51,15 +51,15 @@ document.querySelectorAll('.scroll-link').forEach(link => {
  
 
 
-
-// Email.send({
-//     Host : "smtp.mailendo.com",
-//     Username : "username",
-//     Password : "password",
-//     To : 'them@website.com',
-//     From : "you@isp.com",
-//     Subject : "This is the subject",
-//     Body : "And this is the body"
-// }).then(
-//   message => alert(message)
-// );
+ 
+ // Submit form
+ document.getElementById('contactForm').addEventListener('submit', function(event) {
+     event.preventDefault();
+ 
+     emailjs.sendForm('service_nnrv2gh', 'template_ygpmnaf', this)
+         .then(function() {
+             alert('Pesan berhasil dikirim!');
+         }, function(error) {
+             alert('Terjadi kesalahan: ' + error.text);
+         });
+ });

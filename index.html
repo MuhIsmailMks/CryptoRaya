@@ -13,6 +13,12 @@
 
     <!-- AOS scroll effect cdn --> 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("64DCyHs0cw7qelZ6p");
+    </script>
     
     <!-- tailwind css cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -550,8 +556,8 @@
                     <div class="w-full px-6 py-8 md:p-8"> 
                       <h2></h2>
 
-                        <form class="mt-6"  action="https://formspree.io/f/xkggvjrl"
-                        method="POST">
+                        <form class="mt-6"  
+                        method="POST" id="contactForm">
                             <div class="mb-6" data-aos="fade-up"
                             data-aos-duration="800"
                             data-aos-delay="100">
@@ -659,9 +665,10 @@
  
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-
+<!-- 
     <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+    </script> -->
+
     <script src="./static/js/index.js"></script>
     
   </body>
