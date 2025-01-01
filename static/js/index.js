@@ -56,6 +56,7 @@ document.querySelectorAll('.scroll-link').forEach(link => {
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
+    // for my
     emailjs.sendForm('service_yspdk47', 'template_jcoygt9', this)
         .then(function () {
             alert('Pesan berhasil dikirim!');
@@ -63,7 +64,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
             alert('Terjadi kesalahan: ' + error.text);
         });
 
-        // 
+        // for client
     // emailjs.sendForm('service_nnrv2gh', 'template_ygpmnaf', this)
     //     .then(function () {
     //         alert('Pesan berhasil dikirim!');
