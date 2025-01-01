@@ -87,6 +87,10 @@ body {
   background: linear-gradient(239.74deg, rgba(217, 217, 217, 0) 0%, rgba(255, 255, 255, 0.18) 45.3%, rgba(255, 255, 255, 0.1) 96.84%);
 }
 
+#submitBtn.active{
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 768px) {
   .menuContainer {
     display: none;

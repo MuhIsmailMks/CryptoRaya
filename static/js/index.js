@@ -53,13 +53,20 @@ document.querySelectorAll('.scroll-link').forEach(link => {
 
 
 // Submit form
+const submitButton = document.getElementById('submitBtn')
 document.getElementById('contactForm').addEventListener('submit', function (event) {
     event.preventDefault();
+    const form = this;
+
+    submitButton.disabled = true;
+    submitButton.classList.add('active')
 
     // for my
     emailjs.sendForm('service_yspdk47', 'template_jcoygt9', this)
         .then(function () {
             alert('Pesan berhasil dikirim!');
+            form.reset(); 
+            submitButton.innerText = 'Pesan Terkirim';
         }, function (error) {
             alert('Terjadi kesalahan: ' + error.text);
         });
