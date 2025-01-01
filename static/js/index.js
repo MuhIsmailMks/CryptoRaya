@@ -4,14 +4,14 @@ window.addEventListener('DOMContentLoaded', () => {
         once: true,
         offset: 120,
     });
- 
-    
+
+
 
 })
 
 
 // menuBtn
-const menuBtn = document.querySelector('.menuBtn'); 
+const menuBtn = document.querySelector('.menuBtn');
 const menuContainer = document.querySelector('.menuContainer');
 const menuIcon = document.querySelector('#menuIcon');
 
@@ -29,8 +29,8 @@ menuBtn.addEventListener('click', () => {
 
 document.querySelectorAll('.scroll-link').forEach(link => {
     link.addEventListener('click', function (e) {
-        e.preventDefault();  
-        const targetId = this.getAttribute('href').substring(1); 
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
@@ -48,18 +48,26 @@ document.querySelectorAll('.scroll-link').forEach(link => {
         menuIcon.src = './static/images/menuBtn.svg';
     });
 });
- 
 
 
- 
- // Submit form
- document.getElementById('contactForm').addEventListener('submit', function(event) {
-     event.preventDefault();
- 
-     emailjs.sendForm('service_nnrv2gh', 'template_ygpmnaf', this)
-         .then(function() {
-             alert('Pesan berhasil dikirim!');
-         }, function(error) {
-             alert('Terjadi kesalahan: ' + error.text);
-         });
- });
+
+
+// Submit form
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_yspdk47', 'template_jcoygt9', this)
+        .then(function () {
+            alert('Pesan berhasil dikirim!');
+        }, function (error) {
+            alert('Terjadi kesalahan: ' + error.text);
+        });
+
+        // 
+    // emailjs.sendForm('service_nnrv2gh', 'template_ygpmnaf', this)
+    //     .then(function () {
+    //         alert('Pesan berhasil dikirim!');
+    //     }, function (error) {
+    //         alert('Terjadi kesalahan: ' + error.text);
+    //     });
+});
