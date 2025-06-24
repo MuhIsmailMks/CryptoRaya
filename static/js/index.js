@@ -4,9 +4,6 @@ window.addEventListener('DOMContentLoaded', () => {
         once: true,
         offset: 120,
     });
-
-
-
 })
 
 
@@ -71,11 +68,5 @@ document.getElementById('contactForm').addEventListener('submit', function (even
             alert('Terjadi kesalahan: ' + error.text);
         });
 
-        // for client
-    // emailjs.sendForm('service_nnrv2gh', 'template_ygpmnaf', this)
-    //     .then(function () {
-    //         alert('Pesan berhasil dikirim!');
-    //     }, function (error) {
-    //         alert('Terjadi kesalahan: ' + error.text);
-    //     });
+ 
 });
